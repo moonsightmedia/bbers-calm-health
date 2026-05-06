@@ -1,96 +1,63 @@
+## Ziel
 
-# Startseite Simone Rothlübbers
+Die Startseite soll sich nicht mehr wie eine Kette getrennter Sektionen anfühlen, sondern wie eine durchgehende, fließende Landschaft. Wir bauen die bestehende `WaveDivider`-Idee zu einem konsistenten System aus, das Sektionsfarben sanft ineinander übergehen lässt.
 
-Eine fließende, naturinspirierte One-Pager-Startseite (Meer & Küste als visuelles Leitmotiv) mit der vorgegebenen Farbpalette als Hauptträger des Designs. Ziel: ruhig, vertrauensvoll, einladend, hochwertig — eindeutig "Personenmarke" statt Agentur-Look.
+## Strategie: 3 Ebenen Fluss
 
-## Designsprache
+**1. Sektionsfarben verbinden (statt harter Wechsel)**
 
-**Farben (semantische Tokens in `src/styles.css`)**
-- Tiefes Petrol `#1a4a4a` → `--primary` (Headlines, Footer, starke Akzente)
-- Türkis `#338483` → `--accent` (CTAs, Highlights, Hover)
-- Sandbeige `#e4ce9e` → `--secondary` (warme Flächen, Blob-Hintergründe, Zahlen)
-- Off-White `#f2f6f5` → `--background` (großzügige Atemflächen)
-- Alle als `oklch()` definiert, hell- und dunkel-tauglich.
-
-**Typografie**
-- Headlines: *Fraunces* (warme, moderne Serif — weiblich, vertrauensvoll, nicht klischeehaft)
-- Body: *Inter Tight* oder *DM Sans* (klar, ruhig)
-- Großzügige Zeilenhöhe, viel Weißraum.
-
-**Visuelle Sprache**
-- Organische Blob- und Wellenformen (SVG) als wiederkehrendes Motiv — angelehnt an Küstenlinien und sanfte Wellen
-- Sanfte Sand-zu-Petrol Verläufe, gelegentlich türkise Akzente
-- Dezente Korn-/Noise-Textur für Wärme
-- Sehr weiche Schatten, großzügige Border-Radien (24–48px)
-- Subtile Scroll-Animationen mit `framer-motion` (fade/slide-in, Parallax bei Hero-Blob)
-
-## Seitenstruktur (`/`)
+Aktuell wechseln die Sektionen abrupt zwischen `bg-foam`, `bg-gradient-to-b from-foam to-sand/30`, wieder `bg-foam` etc. — das erzeugt sichtbare Kanten. Wir definieren eine durchgehende Farbreise:
 
 ```text
-┌─ Sticky Navigation (transparent → solid bei Scroll)
-│   Logomark + Wortmarke "Simone Rothlübbers"
-│   Startseite · Angebote · Für wen · Über Simone · BGM · Kontakt
-│   CTA-Button "Termin vereinbaren"
-│
-├─ 1. HERO
-│   Links: Eyebrow "Ganzheitliche Gesundheit"
-│          H1 "Bewegung, Resilienz und Begleitung — für ein Leben in Balance."
-│          Lead-Text (2–3 Zeilen Positionierung)
-│          Primary-CTA + sekundärer Link
-│   Rechts: Organischer Blob mit Foto-Platzhalter (Simone),
-│           umrahmt von Wellen-SVG, kleine Sand-Akzentkreise
-│
-├─ 2. ANSATZ — "Ganzheitlich denken, achtsam handeln"
-│   3 Pfeiler-Karten: Bewegung · Resilienz · Persönliche Begleitung
-│   Jede Karte mit lucide-Icon, weicher Form, Hover-Lift
-│
-├─ 3. ANGEBOTE — "Wie wir zusammenarbeiten"
-│   Asymmetrisches 2-Spalten-Layout, alternierend:
-│   • Einzelbegleitung (gesundheitsbewusste Menschen, Wechseljahre)
-│   • BGM für Unternehmen (Workshops, Programme)
-│   Jeweils Bild-Blob + Kurzbeschreibung + "Mehr erfahren"
-│
-├─ 4. FÜR WEN — Tab-/Pill-Switch
-│   "Einzelpersonen"  ·  "Unternehmen"  ·  "Frauen in den Wechseljahren"
-│   Inhalt wechselt mit kurzer Fade-Animation
-│
-├─ 5. ÜBER SIMONE — Vertrauen
-│   Foto-Blob links, Story-Text rechts
-│   3 dezente Zahlen/Kennwerte (z. B. Jahre Erfahrung, begleitete Menschen,
-│   Unternehmenspartner) auf Sandbeige-Karten
-│
-├─ 6. CTA-BAND
-│   Vollflächig Petrol/Türkis-Verlauf mit Wellen-SVG
-│   "Lass uns ins Gespräch kommen." + Button "Kontakt aufnehmen"
-│
-└─ Footer (Petrol)
-    Kontaktdaten · Navigation · Rechtliches (Platzhalter Impressum/Datenschutz)
+Hero       foam → sand-light
+Approach   sand-light → foam
+Offerings  foam → sand
+ForWhom    sand → foam
+About      foam → tide/10
+CTA        tide/10 → deep (bestehend)
 ```
+
+Jede Sektion endet farblich dort, wo die nächste beginnt. Keine sichtbaren Bruchstellen mehr.
+
+**2. Wellen-Übergänge zwischen jeder Sektion**
+
+`WaveDivider` wird zur zentralen Übergangskomponente ausgebaut:
+- 3–4 zusätzliche Wellenpfade (sanft, mittel, doppelt-geschichtet) als Varianten
+- Neue Komponente `SectionTransition.tsx`, die Wellen + Farbübergang als ein Element kapselt — `from`/`to` Farb-Props, `variant`, optional `flip`
+- Eingesetzt zwischen: Hero↔Approach, Approach↔Offerings, Offerings↔ForWhom, ForWhom↔About, About↔CTA
+- Mehrlagige Wellen (2 SVGs übereinander, leicht versetzt, unterschiedliche Opazität) für Tiefenwirkung wie am Meer
+
+**3. Schwebende Verbindungselemente**
+
+Damit der Blick zwischen Sektionen nicht "anhält":
+- Dezente Blob-Akzente (bestehende `BlobShape`) ragen über Sektionsgrenzen hinweg — z. B. ein Sand-Blob, der unten in Approach beginnt und oben in Offerings endet
+- Sehr langsamer Parallax auf 1–2 dieser Blobs via `framer-motion useScroll`
+- Vereinzelte Sand-/Tide-Punktreihen (wie schon im Hero) als wiederkehrendes "Strand"-Motiv an Übergängen
+- Sektions-Padding leicht reduziert (py-28→py-24), damit die Übergänge selbst Atemraum bekommen
 
 ## Technische Umsetzung
 
-- **Routing**: nur `src/routes/index.tsx` ersetzen; spätere Unterseiten als eigene Route-Files (Konvention bereits etabliert).
-- **Komponenten** unter `src/components/site/`:
-  `Navigation.tsx`, `Hero.tsx`, `Approach.tsx`, `Offerings.tsx`,
-  `ForWhom.tsx`, `AboutSimone.tsx`, `CtaBand.tsx`, `Footer.tsx`,
-  plus `BlobShape.tsx` und `WaveDivider.tsx` für wiederverwendbare SVGs.
-- **Design-Tokens**: alle Markenfarben + Gradient- und Shadow-Tokens in `src/styles.css` (`--gradient-tide`, `--shadow-soft`, `--radius-blob`).
-- **Fonts**: via Google Fonts in `__root.tsx` `<head>`-Links eingebunden.
-- **Animationen**: `framer-motion` (`bun add framer-motion`) — sparsame, langsame Easings.
-- **Icons**: bestehendes `lucide-react`.
-- **Bilder**: zunächst stilvolle Platzhalter (neutrale Porträt-Silhouette + Naturmotive) als generierte Assets in `src/assets/`. Echte Fotos kann Simone später ersetzen.
-- **SEO**: deutscher Titel, Meta-Description, OG-Tags im Route-`head()`.
-- **Responsive**: Mobile-first, Hero stapelt, Asymmetrie wird Vertikalrhythmus.
+**Geänderte/neue Dateien:**
 
-## Inhalte (Platzhalter-Texte auf Deutsch)
+```text
+src/components/site/WaveDivider.tsx     erweitert: variants (calm, layered, deep), Höhen-Prop
+src/components/site/SectionTransition.tsx   NEU: kombiniert 1–2 Wellen + Farbverlauf
+src/components/site/FloatingAccent.tsx      NEU: schwebende Blobs/Punkte mit Parallax
+src/routes/index.tsx                    SectionTransitions zwischen alle Sektionen
+src/components/site/Approach.tsx        bg-Verlauf statt solid
+src/components/site/Offerings.tsx       bg-Verlauf angepasst
+src/components/site/ForWhom.tsx         bg-Verlauf statt solid
+src/components/site/AboutSimone.tsx     bg-Verlauf statt solid
+src/components/site/CtaBand.tsx         bestehender WaveDivider durch SectionTransition ersetzt
+src/styles.css                          ggf. 1–2 neue Verlaufs-Tokens (--gradient-shore-soft etc.)
+```
 
-Alle Texte werden auf Deutsch in Simones ruhigem, vertrauensvollem Ton verfasst — als bearbeitbare Platzhalter, die sie später feinjustieren kann. Keine Lorem-Ipsum-Füllung.
+**Keine** Inhaltsänderungen, **keine** neuen Sektionen, **keine** Backend-Arbeit. Reines Visual-/Übergangs-Refinement im Frontend.
 
-## Nicht im Scope dieser Runde
+## Nicht im Scope
 
-- Unterseiten (Angebote, Für wen, Über Simone, BGM, Kontakt) — Navigation verlinkt vorerst auf Anker/`#`
-- Kontaktformular-Backend / Lovable Cloud
-- Echtes Bildmaterial von Simone
-- Mehrsprachigkeit
+- Neue Inhalte oder Texte
+- Änderungen an Typografie, Farbpalette oder Layout der einzelnen Sektionen selbst
+- Unterseiten
 
-Nach Freigabe und ggf. Designfeinschliff können wir die Unterseiten in einer zweiten Runde ergänzen.
+Nach Freigabe setze ich das in einem Durchgang um.
