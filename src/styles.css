@@ -42,6 +42,11 @@
   --color-foam: var(--foam);
 }
 
+@theme {
+  --shadow-soft: 0 20px 60px -20px oklch(0.3769 0.0512 195.20 / 0.25);
+  --shadow-glow: 0 30px 80px -30px oklch(0.5642 0.0777 194.04 / 0.45);
+}
+
 :root {
   --radius: 1.25rem;
 
