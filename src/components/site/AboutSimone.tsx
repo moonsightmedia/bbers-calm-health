@@ -9,7 +9,14 @@ const stats = [
 
 export function AboutSimone() {
   return (
-    <section id="ueber" className="relative bg-foam py-28 md:py-36">
+    <section
+      id="ueber"
+      className="relative py-24 md:py-32"
+      style={{
+        background:
+          "linear-gradient(180deg, var(--foam) 0%, color-mix(in oklab, var(--tide) 12%, var(--foam)) 100%)",
+      }}
+    >
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 md:px-10 lg:grid-cols-12">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
