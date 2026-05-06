@@ -1,0 +1,107 @@
+import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
+import { Menu, X } from "lucide-react";
+
+const links = [
+  { label: "Startseite", href: "#top" },
+  { label: "Angebote", href: "#angebote" },
+  { label: "Für wen", href: "#fuer-wen" },
+  { label: "Über Simone", href: "#ueber" },
+  { label: "BGM", href: "#bgm" },
+  { label: "Kontakt", href: "#kontakt" },
+];
+
+export function Navigation() {
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-foam/80 backdrop-blur-xl shadow-[0_4px_30px_-15px_rgba(26,74,74,0.25)]"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-10">
+        <Link to="/" className="group flex items-center gap-3">
+          <span className="relative inline-flex h-9 w-9 items-center justify-center">
+            <svg viewBox="0 0 36 36" className="h-9 w-9" aria-hidden="true">
+              <circle cx="18" cy="18" r="17" fill="var(--deep)" />
+              <path
+                d="M8 22 C 13 16, 23 28, 28 18"
+                stroke="var(--sand)"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                fill="none"
+              />
+              <circle cx="18" cy="13" r="2" fill="var(--sand)" />
+            </svg>
+          </span>
+          <span className="font-display text-[1.05rem] leading-none tracking-tight text-deep">
+            Simone Rothlübbers
+          </span>
+        </Link>
+
+        <nav className="hidden items-center gap-8 md:flex">
+          {links.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className="text-sm text-deep/75 transition-colors hover:text-deep"
+            >
+              {l.label}
+            </a>
+          ))}
+        </nav>
+
+        <a
+          href="#kontakt"
+          className="hidden items-center gap-2 rounded-full bg-deep px-5 py-2.5 text-sm text-foam transition-all hover:bg-tide hover:shadow-[0_10px_30px_-10px_var(--tide)] md:inline-flex"
+        >
+          Termin vereinbaren
+        </a>
+
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-deep/5 text-deep md:hidden"
+          aria-label="Menü"
+        >
+          {open ? <X size={20} /> : <Menu size={20} />}
+        </button>
+      </div>
+
+      {open && (
+        <div className="border-t border-deep/10 bg-foam/95 backdrop-blur-xl md:hidden">
+          <nav className="mx-auto flex max-w-7xl flex-col px-6 py-4">
+            {links.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="py-3 text-base text-deep/80"
+              >
+                {l.label}
+              </a>
+            ))}
+            <a
+              href="#kontakt"
+              onClick={() => setOpen(false)}
+              className="mt-3 inline-flex items-center justify-center rounded-full bg-deep px-5 py-3 text-foam"
+            >
+              Termin vereinbaren
+            </a>
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+}
