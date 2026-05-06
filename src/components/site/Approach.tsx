@@ -21,7 +21,14 @@ const pillars = [
 
 export function Approach() {
   return (
-    <section id="ansatz" className="relative bg-foam py-28 md:py-36">
+    <section
+      id="ansatz"
+      className="relative py-24 md:py-32"
+      style={{
+        background:
+          "linear-gradient(180deg, var(--sand-light) 0%, var(--foam) 100%)",
+      }}
+    >
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-xs uppercase tracking-[0.22em] text-tide">Mein Ansatz</span>
