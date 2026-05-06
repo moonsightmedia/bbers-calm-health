@@ -1,11 +1,16 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Mail } from "lucide-react";
-import { WaveDivider } from "./WaveDivider";
+import { SectionTransition } from "./SectionTransition";
 
 export function CtaBand() {
   return (
     <section id="kontakt" className="relative overflow-hidden">
-      <WaveDivider className="block h-16 w-full text-deep md:h-24" fill="currentColor" />
+      <SectionTransition
+        from="color-mix(in oklab, var(--tide) 12%, var(--foam))"
+        to="var(--deep)"
+        accent="var(--tide)"
+        height={160}
+      />
 
       <div className="relative bg-deep py-28 text-foam md:py-36">
         <div aria-hidden className="pointer-events-none absolute inset-0">

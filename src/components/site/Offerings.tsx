@@ -24,7 +24,14 @@ const offers = [
 
 export function Offerings() {
   return (
-    <section id="angebote" className="relative bg-gradient-to-b from-foam to-sand/30 py-28 md:py-36">
+    <section
+      id="angebote"
+      className="relative py-24 md:py-32"
+      style={{
+        background:
+          "linear-gradient(180deg, var(--foam) 0%, var(--sand) 100%)",
+      }}
+    >
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-2xl">
