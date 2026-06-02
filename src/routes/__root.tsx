@@ -1,6 +1,7 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { Navigation } from "@/components/site/Navigation";
 import { Footer } from "@/components/site/Footer";
+import { Toaster } from "@/components/ui/sonner";
 import iconDark from "@/assets/icon-dark.png.asset.json";
 import iconLight from "@/assets/icon-light.png.asset.json";
 
@@ -100,6 +101,7 @@ function RootComponent() {
         <Outlet />
       </main>
       <Footer />
+      <Toaster />
     </div>
   );
 }
