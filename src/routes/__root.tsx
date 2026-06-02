@@ -78,9 +78,11 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   return (
-    <div className="min-h-screen bg-foam text-deep">
+    <div className="min-h-dvh bg-foam text-deep">
       <Navigation />
-      <Outlet />
+      <main id="main">
+        <Outlet />
+      </main>
       <Footer />
     </div>
   );

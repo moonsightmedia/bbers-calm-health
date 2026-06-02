@@ -52,7 +52,7 @@ export function AboutSimone({ teaser = false }: Props) {
             >
               <img
                 src={portrait}
-                alt="Simone Rothlübbers"
+                alt="Portrait von Simone Rothlübbers im Therapieraum"
                 width={1024}
                 height={1024}
                 loading="lazy"

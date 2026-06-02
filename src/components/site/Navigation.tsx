@@ -40,7 +40,7 @@ export function Navigation() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex">
+        <nav aria-label="Hauptnavigation" className="hidden items-center gap-7 lg:flex">
           {links.map((l) => (
             <Link
               key={l.to}
@@ -63,16 +63,18 @@ export function Navigation() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-deep/5 text-deep lg:hidden"
-          aria-label="Menü"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-deep/5 text-deep lg:hidden"
+          aria-label={open ? "Menü schließen" : "Menü öffnen"}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
         >
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
       {open && (
-        <div className="border-t border-deep/10 bg-foam/95 backdrop-blur-xl lg:hidden">
-          <nav className="mx-auto flex max-w-7xl flex-col px-6 py-4">
+        <div id="mobile-nav" className="border-t border-deep/10 bg-foam/95 backdrop-blur-xl lg:hidden">
+          <nav aria-label="Mobile Navigation" className="mx-auto flex max-w-7xl flex-col px-6 py-4">
             {links.map((l) => (
               <Link
                 key={l.to}
