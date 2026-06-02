@@ -32,23 +32,12 @@ export function Navigation() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-10">
-        <Link to="/" className="group flex items-center gap-3">
-          <span className="relative inline-flex h-9 w-9 items-center justify-center">
-            <svg viewBox="0 0 36 36" className="h-9 w-9" aria-hidden="true">
-              <circle cx="18" cy="18" r="17" fill="var(--deep)" />
-              <path
-                d="M8 22 C 13 16, 23 28, 28 18"
-                stroke="var(--sand)"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-                fill="none"
-              />
-              <circle cx="18" cy="13" r="2" fill="var(--sand)" />
-            </svg>
-          </span>
-          <span className="font-display text-[1.05rem] leading-none tracking-tight text-deep">
-            Simone Rothlübbers
-          </span>
+        <Link to="/" className="group flex items-center">
+          <img
+            src={logoDark.url}
+            alt="Simone Rothlübbers"
+            className="h-12 w-auto md:h-14"
+          />
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex">
