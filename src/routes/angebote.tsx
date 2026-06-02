@@ -27,7 +27,7 @@ function AngebotePage() {
         intro="Jedes Angebot ist eingebettet in ein ganzheitliches Konzept zur Gesundheits­förderung — fundiert nach Leitfaden Prävention (§ 20 SGB V) und immer angepasst an den Menschen vor mir."
       />
       <Offerings />
-      <CtaBand />
+      <CtaBand from="var(--sand)" />
     </>
   );
 }
