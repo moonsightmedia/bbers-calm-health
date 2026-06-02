@@ -2,11 +2,13 @@ import { motion } from "framer-motion";
 import { ArrowRight, Mail, Phone } from "lucide-react";
 import { SectionTransition } from "./SectionTransition";
 
-export function CtaBand() {
+export function CtaBand({
+  from = "color-mix(in oklab, var(--tide) 12%, var(--foam))",
+}: { from?: string } = {}) {
   return (
     <section id="kontakt" className="relative overflow-hidden">
       <SectionTransition
-        from="var(--sand)"
+        from={from}
         to="var(--deep)"
         height={140}
       />
