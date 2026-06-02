@@ -14,8 +14,8 @@ export function CtaBand() {
 
       <div className="relative bg-deep py-28 text-foam md:py-36">
         <div aria-hidden className="pointer-events-none absolute inset-0">
-          <div className="absolute -left-20 top-10 h-[420px] w-[420px] rounded-full bg-tide/40 blur-3xl" />
-          <div className="absolute -right-10 bottom-0 h-[360px] w-[360px] rounded-full bg-sand/20 blur-3xl" />
+          <div className="absolute -left-20 top-1/3 h-[420px] w-[420px] -translate-y-1/2 rounded-full bg-tide/40 blur-3xl" />
+          <div className="absolute -right-10 bottom-1/4 h-[360px] w-[360px] translate-y-1/2 rounded-full bg-sand/20 blur-3xl" />
         </div>
 
         <motion.div
