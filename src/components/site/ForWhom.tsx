@@ -60,8 +60,8 @@ export function ForWhom() {
   return (
     <section id="fuer-wen" className="relative overflow-hidden bg-deep py-28 text-foam md:py-36">
       <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="absolute -left-40 top-10 h-[500px] w-[500px] rounded-full bg-tide/30 blur-3xl" />
-        <div className="absolute -right-32 bottom-0 h-[420px] w-[420px] rounded-full bg-sand/15 blur-3xl" />
+        <div className="absolute -left-40 top-1/3 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-tide/30 blur-3xl" />
+        <div className="absolute -right-32 bottom-1/4 h-[420px] w-[420px] translate-y-1/2 rounded-full bg-sand/15 blur-3xl" />
       </div>
 
       <div className="relative mx-auto max-w-6xl px-6 md:px-10">
