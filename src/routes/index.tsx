@@ -46,11 +46,6 @@ function Index() {
       />
       <AboutSimone teaser />
       <QuotesBand />
-      <SectionTransition
-        from="color-mix(in oklab, var(--tide) 12%, var(--foam))"
-        to="var(--deep)"
-        height={140}
-      />
       <CtaBand />
     </>
   );
