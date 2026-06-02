@@ -110,7 +110,7 @@ function BgmPage() {
         </div>
       </section>
 
-      <CtaBand />
+      <CtaBand from="var(--foam)" />
     </>
   );
 }
