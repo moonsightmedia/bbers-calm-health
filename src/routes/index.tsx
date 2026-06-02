@@ -1,22 +1,30 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Navigation } from "@/components/site/Navigation";
 import { Hero } from "@/components/site/Hero";
 import { Approach } from "@/components/site/Approach";
 import { Offerings } from "@/components/site/Offerings";
 import { ForWhom } from "@/components/site/ForWhom";
 import { AboutSimone } from "@/components/site/AboutSimone";
+import { QuotesBand } from "@/components/site/QuotesBand";
 import { CtaBand } from "@/components/site/CtaBand";
-import { Footer } from "@/components/site/Footer";
 import { SectionTransition } from "@/components/site/SectionTransition";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Simone Rothlübbers — Ganzheitliche Gesundheit, Resilienz & Bewegung" },
+      { name: "description", content: "Physiotherapie, Resilienz-Training und Betriebliches Gesundheits­management aus Wuppertal — für Menschen und Unternehmen, die in Bewegung bleiben wollen." },
+      { property: "og:title", content: "Simone Rothlübbers — Leben im Gleichgewicht" },
+      { property: "og:description", content: "Bewegung, Resilienz und persönliche Begleitung — innen wie außen." },
+      { property: "og:url", content: "/" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+  }),
   component: Index,
 });
 
 function Index() {
   return (
-    <main className="min-h-screen bg-foam text-deep">
-      <Navigation />
+    <>
       <Hero />
       <SectionTransition
         from="var(--foam)"
@@ -24,7 +32,7 @@ function Index() {
         height={100}
       />
       <Approach />
-      <Offerings />
+      <Offerings compact />
       <SectionTransition
         from="var(--sand)"
         to="var(--deep)"
@@ -38,9 +46,9 @@ function Index() {
         accent="var(--tide)"
         height={160}
       />
-      <AboutSimone />
+      <AboutSimone teaser />
+      <QuotesBand />
       <CtaBand />
-      <Footer />
-    </main>
+    </>
   );
 }
