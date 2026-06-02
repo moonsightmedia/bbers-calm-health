@@ -1,3 +1,16 @@
+import { Link } from "@tanstack/react-router";
+import { Mail, Phone, MapPin } from "lucide-react";
+
+const navLinks = [
+  { label: "Startseite", to: "/" },
+  { label: "Angebote", to: "/angebote" },
+  { label: "Workshops", to: "/workshops" },
+  { label: "Für wen", to: "/fuer-wen" },
+  { label: "Über Simone", to: "/ueber" },
+  { label: "BGM", to: "/bgm" },
+  { label: "Kontakt", to: "/kontakt" },
+] as const;
+
 export function Footer() {
   return (
     <footer className="bg-deep text-foam/75">
@@ -18,26 +31,19 @@ export function Footer() {
             <span className="font-display text-lg text-foam">Simone Rothlübbers</span>
           </div>
           <p className="mt-5 max-w-md leading-relaxed">
-            Ganzheitliche Gesundheit, Resilienz und Bewegung — für Menschen
-            und Organisationen, die in Bewegung bleiben wollen.
+            Leben im Gleichgewicht — innen wie außen. Physiotherapie, Resilienz
+            und Betriebliches Gesundheitsmanagement aus Wuppertal.
           </p>
         </div>
 
         <div>
           <h4 className="font-display text-foam">Navigation</h4>
           <ul className="mt-5 space-y-3 text-sm">
-            {[
-              ["Startseite", "#top"],
-              ["Angebote", "#angebote"],
-              ["Für wen", "#fuer-wen"],
-              ["Über Simone", "#ueber"],
-              ["BGM", "#bgm"],
-              ["Kontakt", "#kontakt"],
-            ].map(([l, h]) => (
-              <li key={h}>
-                <a href={h} className="hover:text-sand">
-                  {l}
-                </a>
+            {navLinks.map((l) => (
+              <li key={l.to}>
+                <Link to={l.to} className="hover:text-sand">
+                  {l.label}
+                </Link>
               </li>
             ))}
           </ul>
@@ -46,8 +52,22 @@ export function Footer() {
         <div>
           <h4 className="font-display text-foam">Kontakt</h4>
           <ul className="mt-5 space-y-3 text-sm">
-            <li>hallo@simone-rothluebbers.de</li>
-            <li>+49 (0) 000 0000000</li>
+            <li className="flex items-start gap-2">
+              <Mail size={14} className="mt-1 shrink-0" />
+              <a href="mailto:hallo@simone-rothlübbers.de" className="hover:text-sand break-all">
+                hallo@simone-rothlübbers.de
+              </a>
+            </li>
+            <li className="flex items-start gap-2">
+              <Phone size={14} className="mt-1 shrink-0" />
+              <a href="tel:+4917631345153" className="hover:text-sand">
+                0176 31345153
+              </a>
+            </li>
+            <li className="flex items-start gap-2">
+              <MapPin size={14} className="mt-1 shrink-0" />
+              <span>Röttgen 123, 42109 Wuppertal</span>
+            </li>
             <li className="pt-3 text-foam/55">Impressum · Datenschutz</li>
           </ul>
         </div>
