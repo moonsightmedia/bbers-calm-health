@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { PageHeader } from "@/components/site/PageHeader";
+import { ContactForm } from "@/components/site/ContactForm";
 
 export const Route = createFileRoute("/kontakt")({
   head: () => ({
@@ -102,6 +103,18 @@ function KontaktPage() {
                 </div>
               </motion.a>
             ))}
+          </div>
+
+          <div className="mt-14">
+            <div className="mb-6 flex items-end justify-between gap-6">
+              <h2 className="font-display text-2xl text-deep md:text-3xl">
+                Schreib mir direkt.
+              </h2>
+              <p className="hidden text-xs uppercase tracking-[0.16em] text-tide sm:block">
+                Antwort in 1–2 Werktagen
+              </p>
+            </div>
+            <ContactForm />
           </div>
 
           <div className="mt-10 rounded-[28px] border border-deep/10 bg-foam/70 p-8 text-sm text-deep/70 backdrop-blur md:p-10">
