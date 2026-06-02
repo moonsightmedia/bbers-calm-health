@@ -15,6 +15,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as ImpressumRouteImport } from './routes/impressum'
 import { Route as FuerWenRouteImport } from './routes/fuer-wen'
+import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as BgmRouteImport } from './routes/bgm'
 import { Route as AngeboteRouteImport } from './routes/angebote'
 import { Route as IndexRouteImport } from './routes/index'
@@ -49,6 +50,11 @@ const FuerWenRoute = FuerWenRouteImport.update({
   path: '/fuer-wen',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DatenschutzRoute = DatenschutzRouteImport.update({
+  id: '/datenschutz',
+  path: '/datenschutz',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BgmRoute = BgmRouteImport.update({
   id: '/bgm',
   path: '/bgm',
@@ -69,6 +75,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/angebote': typeof AngeboteRoute
   '/bgm': typeof BgmRoute
+  '/datenschutz': typeof DatenschutzRoute
   '/fuer-wen': typeof FuerWenRoute
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
@@ -80,6 +87,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/angebote': typeof AngeboteRoute
   '/bgm': typeof BgmRoute
+  '/datenschutz': typeof DatenschutzRoute
   '/fuer-wen': typeof FuerWenRoute
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
@@ -92,6 +100,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/angebote': typeof AngeboteRoute
   '/bgm': typeof BgmRoute
+  '/datenschutz': typeof DatenschutzRoute
   '/fuer-wen': typeof FuerWenRoute
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
@@ -105,6 +114,7 @@ export interface FileRouteTypes {
     | '/'
     | '/angebote'
     | '/bgm'
+    | '/datenschutz'
     | '/fuer-wen'
     | '/impressum'
     | '/kontakt'
@@ -116,6 +126,7 @@ export interface FileRouteTypes {
     | '/'
     | '/angebote'
     | '/bgm'
+    | '/datenschutz'
     | '/fuer-wen'
     | '/impressum'
     | '/kontakt'
@@ -127,6 +138,7 @@ export interface FileRouteTypes {
     | '/'
     | '/angebote'
     | '/bgm'
+    | '/datenschutz'
     | '/fuer-wen'
     | '/impressum'
     | '/kontakt'
@@ -139,6 +151,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AngeboteRoute: typeof AngeboteRoute
   BgmRoute: typeof BgmRoute
+  DatenschutzRoute: typeof DatenschutzRoute
   FuerWenRoute: typeof FuerWenRoute
   ImpressumRoute: typeof ImpressumRoute
   KontaktRoute: typeof KontaktRoute
@@ -191,6 +204,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FuerWenRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/datenschutz': {
+      id: '/datenschutz'
+      path: '/datenschutz'
+      fullPath: '/datenschutz'
+      preLoaderRoute: typeof DatenschutzRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/bgm': {
       id: '/bgm'
       path: '/bgm'
@@ -219,6 +239,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AngeboteRoute: AngeboteRoute,
   BgmRoute: BgmRoute,
+  DatenschutzRoute: DatenschutzRoute,
   FuerWenRoute: FuerWenRoute,
   ImpressumRoute: ImpressumRoute,
   KontaktRoute: KontaktRoute,
