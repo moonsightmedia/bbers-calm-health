@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
 import logoLight from "@/assets/logo-light.png.asset.json";
 
@@ -15,7 +16,13 @@ const navLinks = [
 export function Footer() {
   return (
     <footer className="bg-deep text-foam/75">
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-4 md:px-10">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-4 md:px-10"
+      >
         <div className="md:col-span-2">
           <div className="flex items-center">
             <img
@@ -65,13 +72,13 @@ export function Footer() {
             <li className="pt-3 text-foam/55">Impressum · Datenschutz</li>
           </ul>
         </div>
-      </div>
+      </motion.div>
 
       <div className="border-t border-foam/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-6 py-6 text-xs text-foam/55 md:flex-row md:px-10">
           <span>© {new Date().getFullYear()} Simone Rothlübbers. Alle Rechte vorbehalten.</span>
           <span>Mit Sorgfalt gestaltet.</span>
-        </div>
+      </div>
       </div>
     </footer>
   );

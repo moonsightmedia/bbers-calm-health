@@ -9,8 +9,16 @@ export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden pt-32 pb-24 md:pt-40 md:pb-32">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -left-40 top-20 h-[520px] w-[520px] rounded-full bg-tide/10 blur-3xl" />
-        <div className="absolute -right-32 -top-10 h-[420px] w-[420px] rounded-full bg-sand/40 blur-3xl" />
+        <motion.div
+          className="absolute -left-40 top-20 h-[520px] w-[520px] rounded-full bg-tide/10 blur-3xl"
+          animate={{ y: [0, 24, 0], x: [0, 12, 0] }}
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute -right-32 -top-10 h-[420px] w-[420px] rounded-full bg-sand/40 blur-3xl"
+          animate={{ y: [0, -20, 0], x: [0, -10, 0] }}
+          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+        />
       </div>
 
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 md:px-10 lg:grid-cols-12">
@@ -34,12 +42,15 @@ export function Hero() {
                 className="absolute -bottom-2 left-0 h-3 w-full text-sand"
                 aria-hidden
               >
-                <path
+                <motion.path
                   d="M2,8 Q55,1 110,7 T218,6"
                   stroke="currentColor"
                   strokeWidth="3"
                   fill="none"
                   strokeLinecap="round"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ duration: 1.2, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
                 />
               </svg>
             </span>
@@ -116,13 +127,18 @@ export function Hero() {
               transition={{ delay: 0.7, duration: 0.8 }}
               className="absolute -bottom-6 -left-6 max-w-[260px] rounded-2xl bg-foam/95 p-5 shadow-soft backdrop-blur"
             >
-              <p className="font-display text-[15px] italic leading-snug text-deep">
-                „Verständnis und Annahme von dem, was ist, schafft den
-                richtigen Nährboden für das Neue."
-              </p>
-              <p className="mt-2 text-xs uppercase tracking-[0.18em] text-tide">
-                — Simone
-              </p>
+              <motion.div
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <p className="font-display text-[15px] italic leading-snug text-deep">
+                  „Verständnis und Annahme von dem, was ist, schafft den
+                  richtigen Nährboden für das Neue."
+                </p>
+                <p className="mt-2 text-xs uppercase tracking-[0.18em] text-tide">
+                  — Simone
+                </p>
+              </motion.div>
             </motion.div>
           </div>
         </motion.div>
