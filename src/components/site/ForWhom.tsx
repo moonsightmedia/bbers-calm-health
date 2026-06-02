@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Sparkles, Building2, Flower2 } from "lucide-react";
+import { Sparkles, Building2, Flower2, Baby } from "lucide-react";
 
 const tabs = [
   {
@@ -8,24 +8,48 @@ const tabs = [
     label: "Einzelpersonen",
     icon: Sparkles,
     headline: "Für Menschen, die ihre Gesundheit selbst in die Hand nehmen.",
-    text: "Du möchtest dich wieder kraftvoll, beweglich und klar fühlen? Gemeinsam entwickeln wir einen Weg, der zu deinem Leben passt — ohne Druck, dafür mit langfristiger Wirkung.",
-    points: ["Standortbestimmung & individuelle Ziele", "Bewegung, die in deinen Alltag passt", "Resilienz für stressige Lebensphasen"],
+    text: "Du möchtest dich wieder kraftvoll, beweglich und klar fühlen? Gemeinsam entwickeln wir deinen individuellen Weg zu mehr Gesundheit und Verständnis für die Auslöser des Ungleichgewichts im eigenen Körper.",
+    points: [
+      "Standortbestimmung & individuelle Ziele",
+      "Physiotherapie, Personal Training & Hypnose",
+      "Hausbesuche möglich · Abrechnung über Privat-KK oder HP-VO",
+    ],
   },
   {
     id: "unternehmen",
     label: "Unternehmen",
     icon: Building2,
     headline: "Für Organisationen, die Gesundheit kulturell verankern.",
-    text: "Ich entwickle BGM-Programme, die wirken — strategisch fundiert und gleichzeitig nah an den Menschen, die sie erreichen sollen.",
-    points: ["Analyse & Strategie für nachhaltiges BGM", "Workshops, Vorträge & Programme", "Begleitung von Führungskräften"],
+    text: "Maßgeschneiderte BGM-Programme nach Leitfaden Prävention (§ 20 SGB V) — strategisch fundiert, alltagstauglich und nah an den Menschen, die sie erreichen sollen.",
+    points: [
+      "Gesundheitstage & Workshops",
+      "Resilienz, Bewegung, Faszien, Ergonomie",
+      "Bereits im Einsatz u. a. bei Helios, Vitra, Roche",
+    ],
   },
   {
     id: "wechseljahre",
     label: "Frauen in den Wechseljahren",
     icon: Flower2,
-    headline: "Für Frauen, die diese Lebensphase aktiv gestalten wollen.",
-    text: "Die Wechseljahre sind kein Defizit — sondern eine Phase, in der Bewegung, Resilienz und liebevolle Selbstführung besonders viel bewirken können.",
-    points: ["Spezifisches Wissen rund um die Wechseljahre", "Hormonsensible Bewegung & Ernährungstipps", "Mentale Stärke & neue Selbstverständlichkeit"],
+    headline: "Spezielle Seminare als Wertschätzung weiblicher Lebensphasen.",
+    text: "Die Wechseljahre sind kein Defizit — sondern eine Phase, in der Bewegung, Resilienz und liebevolle Selbstführung besonders viel bewirken können. Auch als Workshop-Angebot für Unternehmen.",
+    points: [
+      "Hormonsensible Bewegung",
+      "Mentale Stärke & neue Selbstverständnis­lichkeit",
+      "Auch als Inhouse-Workshop buchbar",
+    ],
+  },
+  {
+    id: "kinder",
+    label: "Kinder & Jugendliche",
+    icon: Baby,
+    headline: "Brain-Move für Kitas, Grundschulen und Bildungsträger.",
+    text: "Ein Koordinations- und Bewegungstraining, das neue Verschaltungen im Gehirn anregt — für mehr Konzentration, bessere Merkfähigkeit und sicherere Bewegungsabläufe. Auch gemeinsam mit Eltern.",
+    points: [
+      "Zielgruppe: 4–10 Jahre",
+      "Koordination, Konzentration & Spaß",
+      "Workshops mit Eltern-Beteiligung & Handout",
+    ],
   },
 ];
 
@@ -44,7 +68,7 @@ export function ForWhom() {
         <div className="max-w-2xl">
           <span className="text-xs uppercase tracking-[0.22em] text-sand">Für wen</span>
           <h2 className="mt-4 font-display text-4xl leading-tight md:text-5xl">
-            Drei Wege, <span className="italic text-sand">ein Anliegen.</span>
+            Vier Wege, <span className="italic text-sand">ein Anliegen.</span>
           </h2>
         </div>
 

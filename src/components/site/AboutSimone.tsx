@@ -2,12 +2,27 @@ import { motion } from "framer-motion";
 import portrait from "@/assets/simone-portrait.jpg";
 
 const stats = [
-  { value: "15+", label: "Jahre Erfahrung" },
-  { value: "1.200", label: "begleitete Menschen" },
-  { value: "40+", label: "Unternehmenspartner" },
+  { value: "30+", label: "Jahre Physiotherapie" },
+  { value: "15", label: "Jahre Kursleitung" },
+  { value: "10", label: "Jahre Gesundheitstage" },
 ];
 
-export function AboutSimone() {
+const qualifications = [
+  "Physiotherapeutin & sektorale Heilpraktikerin",
+  "Resilienztrainerin",
+  "Faszientrainerin",
+  "Psychologische Beraterin",
+  "Hypnose (nicht medizinisch)",
+  "Qigong · Feldenkrais · Alexandertechnik",
+  "Atemtechniken & Achtsamkeit",
+];
+
+type Props = {
+  /** If true, render compact teaser variant for the homepage */
+  teaser?: boolean;
+};
+
+export function AboutSimone({ teaser = false }: Props) {
   return (
     <section
       id="ueber"
@@ -55,21 +70,25 @@ export function AboutSimone() {
         >
           <span className="text-xs uppercase tracking-[0.22em] text-tide">Über Simone</span>
           <h2 className="mt-4 font-display text-4xl leading-tight text-deep md:text-5xl">
-            Vertrauen wächst da, <br />
-            <span className="italic">wo zugehört wird.</span>
+            Erfahrung, die <br />
+            <span className="italic">trägt und bewegt.</span>
           </h2>
           <div className="mt-6 space-y-5 text-lg leading-relaxed text-deep/75">
             <p>
-              Mein Weg verbindet jahrelange Praxis in Bewegung und
-              Gesundheits&shy;förderung mit einem tiefen Interesse an dem,
-              was Menschen wirklich trägt: Verbindung, Klarheit und das Gefühl,
-              wieder bei sich selbst anzukommen.
+              Als Physiotherapeutin und Faszientrainerin ist es mein innigster
+              Wunsch, jeden Klienten und jede Klientin in die Selbst­wirksamkeit
+              zu bringen. Über 30 Jahre Praxis, eine sektorale Heilpraktiker­erlaubnis
+              und kontinuierliche Weiterbildung bilden dafür das Fundament.
             </p>
-            <p>
-              Ich arbeite ruhig, fundiert und persönlich — mit Einzelpersonen
-              ebenso wie mit Unternehmen, die Gesundheit nicht als Pflichtprogramm,
-              sondern als gelebten Wert verstehen.
-            </p>
+            {!teaser && (
+              <p>
+                Als Resilienz­trainerin, psychologische Beraterin und
+                Hypnotiseurin stehen mir verschiedene Methoden zur Verfügung,
+                die Menschen auf ihrem Weg zu mehr geistig-seelischer Gesundheit
+                unterstützen — immer eingebettet in ein ganzheitliches Verständnis
+                von Körper und Geist.
+              </p>
+            )}
           </div>
 
           <div className="mt-10 grid grid-cols-3 gap-4">
@@ -85,6 +104,24 @@ export function AboutSimone() {
               </div>
             ))}
           </div>
+
+          {!teaser && (
+            <div className="mt-10">
+              <h3 className="text-xs uppercase tracking-[0.22em] text-tide">
+                Qualifikationen
+              </h3>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {qualifications.map((q) => (
+                  <span
+                    key={q}
+                    className="rounded-full border border-deep/15 bg-foam px-4 py-2 text-sm text-deep/80"
+                  >
+                    {q}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
         </motion.div>
       </div>
     </section>
