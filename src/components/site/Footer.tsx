@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
-import logoLight from "@/assets/logo-light.png.asset.json";
+import logoLight from "@/assets/logo-light.png";
 
 const navLinks = [
   { label: "Startseite", to: "/" },
