@@ -26,7 +26,7 @@ export function Footer() {
         <div className="md:col-span-2">
           <div className="flex items-center">
             <img
-              src={logoLight.url}
+              src={logoLight}
               alt="Simone Rothlübbers"
               className="h-16 w-auto md:h-20"
             />
