@@ -2,8 +2,8 @@ import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/r
 import { Navigation } from "@/components/site/Navigation";
 import { Footer } from "@/components/site/Footer";
 import { Toaster } from "@/components/ui/sonner";
-import iconDark from "@/assets/icon-dark.png.asset.json";
-import iconLight from "@/assets/icon-light.png.asset.json";
+import iconDark from "@/assets/icon-dark.png";
+import iconLight from "@/assets/icon-light.png";
 
 import appCss from "../styles.css?url";
 
