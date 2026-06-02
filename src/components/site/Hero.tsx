@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import portrait from "@/assets/simone-portrait.jpg";
+import portraitAsset from "@/assets/simone-portrait.jpg.asset.json";
+const portrait = portraitAsset.url;
 import { BlobShape } from "./BlobShape";
 
 export function Hero() {
