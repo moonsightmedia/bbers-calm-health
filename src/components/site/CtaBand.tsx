@@ -8,8 +8,7 @@ export function CtaBand() {
       <SectionTransition
         from="color-mix(in oklab, var(--tide) 12%, var(--foam))"
         to="var(--deep)"
-        accent="var(--tide)"
-        height={160}
+        height={140}
       />
 
       <div className="relative bg-deep py-28 text-foam md:py-36">
