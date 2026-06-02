@@ -10,14 +10,14 @@ export function Hero() {
       id="top"
       className="relative flex min-h-[calc(100vh-5rem)] w-full items-center justify-center overflow-hidden bg-foam px-6 pt-32 pb-20 md:pt-40 md:pb-28 lg:px-12 lg:pt-44 lg:pb-16"
     >
-      {/* Background decorative blob */}
+      {/* Background decorative blobs (inset so blur doesn't clip on viewport edges) */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-32 -top-32 h-96 w-96 rounded-full bg-sand/15 blur-3xl"
+        className="pointer-events-none absolute left-10 top-20 h-96 w-96 rounded-full bg-sand/15 blur-3xl"
       />
       <motion.div
         aria-hidden
-        className="pointer-events-none absolute -right-24 bottom-10 h-[420px] w-[420px] rounded-full bg-tide/10 blur-3xl"
+        className="pointer-events-none absolute right-20 bottom-40 h-[360px] w-[360px] rounded-full bg-tide/10 blur-3xl"
         animate={{ y: [0, 18, 0], x: [0, -12, 0] }}
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
       />
