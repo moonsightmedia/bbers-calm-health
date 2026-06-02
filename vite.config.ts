@@ -9,5 +9,11 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 export default defineConfig({
   nitro: {
     preset: "vercel",
+    // Lovable defaults write to dist/ — Vercel needs Build Output API in .vercel/output
+    output: {
+      dir: ".vercel/output",
+      serverDir: ".vercel/output/functions/__server.func",
+      publicDir: ".vercel/output/static",
+    },
   },
 });
