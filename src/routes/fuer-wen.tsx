@@ -34,7 +34,7 @@ function FuerWenPage() {
         height={140}
       />
       <ForWhom />
-      <CtaBand />
+      <CtaBand from="var(--deep)" />
     </>
   );
 }
