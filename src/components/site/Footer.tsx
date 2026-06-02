@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, Phone, MapPin } from "lucide-react";
+import logoLight from "@/assets/logo-light.png.asset.json";
 
 const navLinks = [
   { label: "Startseite", to: "/" },
@@ -16,19 +17,12 @@ export function Footer() {
     <footer className="bg-deep text-foam/75">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-4 md:px-10">
         <div className="md:col-span-2">
-          <div className="flex items-center gap-3">
-            <svg viewBox="0 0 36 36" className="h-9 w-9" aria-hidden="true">
-              <circle cx="18" cy="18" r="17" fill="var(--sand)" />
-              <path
-                d="M8 22 C 13 16, 23 28, 28 18"
-                stroke="var(--deep)"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-                fill="none"
-              />
-              <circle cx="18" cy="13" r="2" fill="var(--deep)" />
-            </svg>
-            <span className="font-display text-lg text-foam">Simone Rothlübbers</span>
+          <div className="flex items-center">
+            <img
+              src={logoLight.url}
+              alt="Simone Rothlübbers"
+              className="h-16 w-auto md:h-20"
+            />
           </div>
           <p className="mt-5 max-w-md leading-relaxed">
             Leben im Gleichgewicht — innen wie außen. Physiotherapie, Resilienz
