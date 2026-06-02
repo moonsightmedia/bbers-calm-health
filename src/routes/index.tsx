@@ -36,23 +36,20 @@ function Index() {
       <SectionTransition
         from="var(--sand)"
         to="var(--deep)"
-        accent="var(--tide)"
-        height={160}
+        height={140}
       />
       <ForWhom />
       <SectionTransition
         from="var(--deep)"
         to="var(--foam)"
-        accent="var(--tide)"
-        height={160}
+        height={140}
       />
       <AboutSimone teaser />
       <QuotesBand />
       <SectionTransition
         from="color-mix(in oklab, var(--tide) 12%, var(--foam))"
         to="var(--deep)"
-        accent="var(--tide)"
-        height={160}
+        height={140}
       />
       <CtaBand />
     </>
