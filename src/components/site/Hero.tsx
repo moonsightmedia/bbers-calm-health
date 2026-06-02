@@ -10,19 +10,31 @@ export function Hero() {
       id="top"
       className="relative flex min-h-[calc(100vh-5rem)] w-full items-center justify-center overflow-hidden bg-foam px-6 pt-32 pb-20 md:pt-40 md:pb-28 lg:px-12 lg:pt-44 lg:pb-16"
     >
-      {/* Background decorative blobs (inset so blur doesn't clip on viewport edges) */}
+      {/* Background gradients use radial fades instead of blurred blocks to avoid clipped edges */}
       <div
         aria-hidden
-        className="pointer-events-none absolute left-10 top-20 h-96 w-96 rounded-full bg-sand/15 blur-3xl"
+        className="pointer-events-none absolute left-0 top-14 h-[620px] w-[620px]"
+        style={{
+          background:
+            "radial-gradient(circle, color-mix(in oklab, var(--sand) 15%, transparent) 0%, color-mix(in oklab, var(--sand) 9%, transparent) 34%, transparent 72%)",
+        }}
       />
       <motion.div
         aria-hidden
-        className="pointer-events-none absolute right-20 bottom-40 h-[360px] w-[360px] rounded-full bg-tide/10 blur-3xl"
+        className="pointer-events-none absolute right-0 bottom-10 h-[640px] w-[640px]"
+        style={{
+          background:
+            "radial-gradient(circle, color-mix(in oklab, var(--tide) 11%, transparent) 0%, color-mix(in oklab, var(--tide) 7%, transparent) 32%, transparent 74%)",
+        }}
         animate={{ y: [0, 18, 0], x: [0, -12, 0] }}
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
       />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-72 bg-gradient-to-b from-foam/0 via-foam/90 to-foam"
+      />
 
-      <div className="relative mx-auto flex w-full max-w-7xl flex-col items-center gap-12 lg:flex-row lg:gap-20">
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center gap-12 lg:flex-row lg:gap-20">
         {/* Content Side */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
