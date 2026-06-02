@@ -96,14 +96,24 @@ function BgmPage() {
                   Programme gefördert werden. Wir prüfen das gemeinsam für
                   Ihre Situation.
                 </p>
-                <a
-                  href="https://www.bmi.bund.de/DE/themen/oeffentlicher-dienst/arbeiten-in-der-bundesverwaltung/foerderung-betriebliches-gesundheitsmanagement/foerderung-betriebliches-gesundheitsmanagement-artikel.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-5 inline-flex items-center gap-2 border-b border-deep/30 pb-1 text-sm text-deep transition-colors hover:border-tide hover:text-tide"
-                >
-                  Förderhinweise BMI <ExternalLink size={14} />
-                </a>
+                <div className="mt-5 flex flex-col gap-3">
+                  <a
+                    href="https://www.bgf-koordinierungsstelle.de/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 self-start border-b border-deep/30 pb-1 text-sm text-deep transition-colors hover:border-tide hover:text-tide"
+                  >
+                    BGF-Koordinierungsstelle der Krankenkassen <ExternalLink size={14} />
+                  </a>
+                  <a
+                    href="https://www.bmi.bund.de/DE/themen/oeffentlicher-dienst/arbeiten-in-der-bundesverwaltung/foerderung-betriebliches-gesundheitsmanagement/foerderung-betriebliches-gesundheitsmanagement-artikel.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 self-start border-b border-deep/30 pb-1 text-sm text-deep transition-colors hover:border-tide hover:text-tide"
+                  >
+                    Förderhinweise BMI (öffentlicher Dienst) <ExternalLink size={14} />
+                  </a>
+                </div>
               </div>
             </motion.div>
           </div>
