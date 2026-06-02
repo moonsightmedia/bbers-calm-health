@@ -31,7 +31,7 @@ function WorkshopsPage() {
           <WorkshopGrid />
         </div>
       </section>
-      <CtaBand />
+      <CtaBand from="var(--foam)" />
     </>
   );
 }
