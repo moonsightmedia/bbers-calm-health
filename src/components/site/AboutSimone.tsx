@@ -92,14 +92,14 @@ export function AboutSimone({ teaser = false }: Props) {
             )}
           </div>
 
-          <div className="mt-10 grid grid-cols-3 gap-4">
+          <div className="mt-10 grid grid-cols-3 gap-3 sm:gap-4">
             {stats.map((s) => (
               <div
                 key={s.label}
-                className="rounded-2xl bg-sand-light px-5 py-6 text-deep"
+                className="rounded-2xl bg-sand-light px-3 py-5 text-deep sm:px-5 sm:py-6"
               >
-                <div className="font-display text-3xl md:text-4xl">{s.value}</div>
-                <div className="mt-1 text-xs uppercase tracking-[0.14em] text-deep/65">
+                <div className="font-display text-2xl sm:text-3xl md:text-4xl">{s.value}</div>
+                <div className="mt-1 text-[10px] uppercase tracking-[0.08em] text-deep/65 sm:text-xs sm:tracking-[0.14em] [hyphens:auto]" lang="de">
                   {s.label}
                 </div>
               </div>
