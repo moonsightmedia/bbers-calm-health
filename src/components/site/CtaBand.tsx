@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, Mail, Phone } from "lucide-react";
 import { SectionTransition } from "./SectionTransition";
 
 export function CtaBand() {
@@ -31,18 +31,25 @@ export function CtaBand() {
             <span className="italic text-sand">Gespräch kommen.</span>
           </h2>
           <p className="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-foam/75">
-            Ein erstes Gespräch ist kostenfrei und unverbindlich. Schreib mir,
-            was dich beschäftigt — gemeinsam finden wir den passenden nächsten Schritt.
+            Ein erstes Gespräch ist kostenfrei und unverbindlich. Schreib mir
+            oder ruf an — gemeinsam finden wir den passenden nächsten Schritt.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <a
-              href="mailto:hallo@simone-rothluebbers.de"
+              href="mailto:hallo@simone-rothlübbers.de"
               className="group inline-flex items-center gap-3 rounded-full bg-sand px-7 py-4 text-deep transition-all hover:bg-foam hover:shadow-glow"
             >
               <Mail size={18} />
-              hallo@simone-rothluebbers.de
+              hallo@simone-rothlübbers.de
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+            </a>
+            <a
+              href="tel:+4917631345153"
+              className="inline-flex items-center gap-3 rounded-full border border-foam/25 px-7 py-4 text-foam transition-all hover:border-foam hover:bg-foam/5"
+            >
+              <Phone size={18} />
+              0176 31345153
             </a>
           </div>
         </motion.div>

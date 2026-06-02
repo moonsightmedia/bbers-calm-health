@@ -3,13 +3,13 @@ import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 
 const links = [
-  { label: "Startseite", href: "#top" },
-  { label: "Angebote", href: "#angebote" },
-  { label: "Für wen", href: "#fuer-wen" },
-  { label: "Über Simone", href: "#ueber" },
-  { label: "BGM", href: "#bgm" },
-  { label: "Kontakt", href: "#kontakt" },
-];
+  { label: "Startseite", to: "/" },
+  { label: "Angebote", to: "/angebote" },
+  { label: "Workshops", to: "/workshops" },
+  { label: "Für wen", to: "/fuer-wen" },
+  { label: "Über Simone", to: "/ueber" },
+  { label: "BGM", to: "/bgm" },
+] as const;
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -26,7 +26,7 @@ export function Navigation() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-foam/80 backdrop-blur-xl shadow-[0_4px_30px_-15px_rgba(26,74,74,0.25)]"
+          ? "bg-foam/85 backdrop-blur-xl shadow-[0_4px_30px_-15px_rgba(26,74,74,0.25)]"
           : "bg-transparent"
       }`}
     >
@@ -50,29 +50,30 @@ export function Navigation() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-7 lg:flex">
           {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-sm text-deep/75 transition-colors hover:text-deep"
+            <Link
+              key={l.to}
+              to={l.to}
+              activeOptions={{ exact: l.to === "/" }}
+              className="text-sm text-deep/75 transition-colors hover:text-deep data-[status=active]:text-deep data-[status=active]:font-medium"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
-        <a
-          href="#kontakt"
-          className="hidden items-center gap-2 rounded-full bg-deep px-5 py-2.5 text-sm text-foam transition-all hover:bg-tide hover:shadow-[0_10px_30px_-10px_var(--tide)] md:inline-flex"
+        <Link
+          to="/kontakt"
+          className="hidden items-center gap-2 rounded-full bg-deep px-5 py-2.5 text-sm text-foam transition-all hover:bg-tide hover:shadow-[0_10px_30px_-10px_var(--tide)] lg:inline-flex"
         >
-          Termin vereinbaren
-        </a>
+          Kontakt
+        </Link>
 
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-deep/5 text-deep md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-deep/5 text-deep lg:hidden"
           aria-label="Menü"
         >
           {open ? <X size={20} /> : <Menu size={20} />}
@@ -80,25 +81,25 @@ export function Navigation() {
       </div>
 
       {open && (
-        <div className="border-t border-deep/10 bg-foam/95 backdrop-blur-xl md:hidden">
+        <div className="border-t border-deep/10 bg-foam/95 backdrop-blur-xl lg:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col px-6 py-4">
             {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
+              <Link
+                key={l.to}
+                to={l.to}
                 onClick={() => setOpen(false)}
                 className="py-3 text-base text-deep/80"
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#kontakt"
+            <Link
+              to="/kontakt"
               onClick={() => setOpen(false)}
               className="mt-3 inline-flex items-center justify-center rounded-full bg-deep px-5 py-3 text-foam"
             >
-              Termin vereinbaren
-            </a>
+              Kontakt
+            </Link>
           </nav>
         </div>
       )}

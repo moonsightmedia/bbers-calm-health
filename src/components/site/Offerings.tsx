@@ -1,28 +1,52 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
-import coastal from "@/assets/coastal-walk.jpg";
-import workshop from "@/assets/bgm-workshop.jpg";
+import { Link } from "@tanstack/react-router";
+import { ArrowUpRight, HeartPulse, GraduationCap, Building2, Baby } from "lucide-react";
 
 const offers = [
   {
-    eyebrow: "Für dich persönlich",
-    title: "1:1 Begleitung",
-    text: "Individuelle Begleitung für gesundheitsbewusste Menschen und Frauen in den Wechseljahren — Bewegung, Resilienz und Lebensqualität, abgestimmt auf deine Lebensphase.",
-    bullets: ["Erstgespräch & Standortbestimmung", "Persönliches Bewegungs- & Resilienzprogramm", "Begleitung über mehrere Monate"],
-    image: coastal,
-    href: "#kontakt",
+    icon: HeartPulse,
+    eyebrow: "1:1 Begleitung",
+    title: "Einzeltherapie & Personal Training",
+    text: "Physiotherapie, Personal Training und Hypnose im Behandlungsraum oder als Hausbesuch. Abrechnung über private Krankenkasse (Rezept) oder Heilpraktiker-VO — sektorale Heilpraktiker­erlaubnis für Physiotherapie liegt vor.",
+    bullets: ["Physiotherapie & Faszientraining", "Personal Training & Bewegungs­programme", "Hypnose (nicht medizinisch)"],
+    href: "/kontakt",
+    cta: "Termin anfragen",
   },
   {
+    icon: GraduationCap,
+    eyebrow: "Workshops & Kurse",
+    title: "Workshops & Kursangebote",
+    text: "Über 10 fundierte Workshops rund um Rücken, Schulter, Faszien, Schlaf, Krafttraining und Achtsamkeit — als Einzel-Termin oder fortlaufende Reihe für Gruppen und Einrichtungen.",
+    bullets: ["Rücken, Faszien & Schulter", "Koordination & Krafttraining", "Wechseljahre · Brain-Move"],
+    href: "/workshops",
+    cta: "Workshops ansehen",
+  },
+  {
+    icon: Building2,
     eyebrow: "Für Unternehmen",
     title: "Betriebliches Gesundheitsmanagement",
-    text: "Maßgeschneiderte BGM-Programme, Workshops und Vorträge — wirksam, alltagstauglich und nachhaltig in der Unternehmenskultur verankert.",
-    bullets: ["Strategische BGM-Beratung", "Workshops zu Resilienz & Bewegung", "Programme für Führungskräfte"],
-    image: workshop,
-    href: "#bgm",
+    text: "BGM-Programme und Gesundheitstage nach Leitfaden Prävention (§ 20 SGB V) — eingebettet in ein ganzheitliches Konzept zur Gesundheits­förderung der Mitarbeitenden. Drei Jahre Erfahrung in Kliniken und Firmen.",
+    bullets: ["Gesundheitstage & BGM-Programme", "Resilienz & Arbeitssicherheit", "Referenzen: Helios · Vitra · Roche"],
+    href: "/bgm",
+    cta: "BGM entdecken",
+  },
+  {
+    icon: Baby,
+    eyebrow: "Neu",
+    title: "Brain-Move für Kinder",
+    text: "Koordinationstraining für Kitas, Grundschulen und Bildungsträger — für mehr Konzentration, bessere Gedächtnisleistung und sicherere Bewegungsabläufe im Sport und Alltag. Eltern können aktiv teilnehmen.",
+    bullets: ["Zielgruppe: 4–10 Jahre", "Mehr Konzentration & Merkfähigkeit", "Workshops mit Eltern-Handout"],
+    href: "/kontakt",
+    cta: "Anfrage senden",
   },
 ];
 
-export function Offerings() {
+type Props = {
+  /** If true, render compact 4-card grid for the homepage teaser */
+  compact?: boolean;
+};
+
+export function Offerings({ compact = false }: Props) {
   return (
     <section
       id="angebote"
@@ -41,67 +65,53 @@ export function Offerings() {
             </h2>
           </div>
           <p className="max-w-md text-deep/70">
-            Zwei Wege — ein gemeinsames Ziel: Menschen und Organisationen
-            stärken, die in Bewegung bleiben wollen.
+            Vier Bereiche, ein Anliegen: Menschen, Organisationen und Kinder in
+            ihre Selbst­wirksamkeit bringen.
           </p>
         </div>
 
-        <div className="mt-20 space-y-24">
+        <div className="mt-16 grid gap-6 md:grid-cols-2">
           {offers.map((o, i) => (
-            <motion.div
+            <motion.article
               key={o.title}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-              className={`grid grid-cols-1 items-center gap-12 lg:grid-cols-12 ${
-                i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
-              }`}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+              className="group relative flex flex-col overflow-hidden rounded-[28px] border border-deep/8 bg-card p-9 transition-all hover:-translate-y-1 hover:shadow-soft"
             >
-              <div className="relative lg:col-span-6">
-                <div className="absolute -inset-4 -z-10 rounded-[40px] bg-tide/15 blur-2xl" />
-                <div
-                  className="relative aspect-[5/4] w-full overflow-hidden shadow-soft"
-                  style={{ borderRadius: "44% 56% 60% 40% / 48% 42% 58% 52%" }}
-                >
-                  <img
-                    src={o.image}
-                    alt={o.title}
-                    width={1280}
-                    height={1024}
-                    loading="lazy"
-                    className="h-full w-full object-cover"
-                  />
+              <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-sand/30 transition-transform duration-700 group-hover:scale-125" />
+              <div className="relative flex flex-1 flex-col">
+                <div className="flex items-center gap-3">
+                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-deep text-foam transition-colors group-hover:bg-tide">
+                    <o.icon size={20} strokeWidth={1.6} />
+                  </span>
+                  <span className="text-xs uppercase tracking-[0.22em] text-tide">
+                    {o.eyebrow}
+                  </span>
                 </div>
-                <span className="absolute -bottom-6 left-1/3 inline-flex h-12 w-12 items-center justify-center rounded-full bg-sand text-deep shadow-soft">
-                  <span className="font-display text-lg">0{i + 1}</span>
-                </span>
-              </div>
-
-              <div className="lg:col-span-6">
-                <span className="text-xs uppercase tracking-[0.22em] text-tide">
-                  {o.eyebrow}
-                </span>
-                <h3 className="mt-4 font-display text-3xl text-deep md:text-4xl">
+                <h3 className="mt-6 font-display text-2xl text-deep md:text-3xl">
                   {o.title}
                 </h3>
-                <p className="mt-5 text-lg leading-relaxed text-deep/75">{o.text}</p>
-                <ul className="mt-7 space-y-3">
-                  {o.bullets.map((b) => (
-                    <li key={b} className="flex items-start gap-3 text-deep/80">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-tide" />
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={o.href}
-                  className="mt-8 inline-flex items-center gap-2 border-b border-deep/30 pb-1 text-deep transition-colors hover:border-tide hover:text-tide"
+                <p className="mt-4 leading-relaxed text-deep/75">{o.text}</p>
+                {!compact && (
+                  <ul className="mt-5 space-y-2.5">
+                    {o.bullets.map((b) => (
+                      <li key={b} className="flex items-start gap-3 text-deep/80">
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-tide" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                <Link
+                  to={o.href}
+                  className="mt-7 inline-flex items-center gap-2 self-start border-b border-deep/30 pb-1 text-deep transition-colors hover:border-tide hover:text-tide"
                 >
-                  Mehr erfahren <ArrowUpRight size={16} />
-                </a>
+                  {o.cta} <ArrowUpRight size={16} />
+                </Link>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>

@@ -5,17 +5,17 @@ const pillars = [
   {
     icon: Activity,
     title: "Bewegung",
-    text: "Funktionelle, freudvolle Bewegung als tägliche Quelle von Energie, Beweglichkeit und Lebensfreude.",
+    text: "Funktionelle, freudvolle Bewegung als Quelle von Beweglichkeit, Kraft und Lebensenergie — abgestimmt auf Lebensphase und Alltag.",
   },
   {
     icon: Heart,
     title: "Resilienz",
-    text: "Innere Stärke aufbauen, Stress anders verstehen und in herausfordernden Phasen bei sich bleiben.",
+    text: "Innere Widerstandskraft aufbauen — durch Atem, Achtsamkeit, Schlafhygiene und einen bewussten Umgang mit dem eigenen Biorhythmus.",
   },
   {
     icon: Compass,
     title: "Begleitung",
-    text: "Persönlich, achtsam, fundiert — auf Augenhöhe und im Tempo, das zu deinem Leben passt.",
+    text: "Persönlich, ganzheitlich, auf Augenhöhe — mit dem Ziel, jeden Menschen in seine Selbstwirksamkeit zu führen.",
   },
 ];
 
@@ -37,9 +37,10 @@ export function Approach() {
             <span className="italic">achtsam handeln.</span>
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-deep/70">
-            Gesundheit ist mehr als die Abwesenheit von Beschwerden. Sie entsteht
-            im Zusammenspiel von Körper, Kopf und Lebensumständen — drei Pfeiler
-            tragen meine Arbeit.
+            Mein Verständnis von Gesundheit bezieht die geistig-seelische Ebene
+            immer mit ein. Aus meiner eigenen Erfahrung und dem tiefen
+            Verständnis für die Komplexität von Körper und Geist erarbeite ich
+            für jeden Menschen seinen individuellen Weg.
           </p>
         </div>
 

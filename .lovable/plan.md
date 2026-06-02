@@ -1,63 +1,79 @@
-## Ziel
+## Inhalte + echte Unterseiten
 
-Die Startseite soll sich nicht mehr wie eine Kette getrennter Sektionen anfühlen, sondern wie eine durchgehende, fließende Landschaft. Wir bauen die bestehende `WaveDivider`-Idee zu einem konsistenten System aus, das Sektionsfarben sanft ineinander übergehen lässt.
+Zwei Teile: (A) Inhalte aus Simones Notizen einarbeiten, (B) echte Unterseiten statt nur Hash-Anker — jede mit eigenem SEO-Tag und teilbarer URL.
 
-## Strategie: 3 Ebenen Fluss
-
-**1. Sektionsfarben verbinden (statt harter Wechsel)**
-
-Aktuell wechseln die Sektionen abrupt zwischen `bg-foam`, `bg-gradient-to-b from-foam to-sand/30`, wieder `bg-foam` etc. — das erzeugt sichtbare Kanten. Wir definieren eine durchgehende Farbreise:
+## A) Unterseiten-Struktur (neu)
 
 ```text
-Hero       foam → sand-light
-Approach   sand-light → foam
-Offerings  foam → sand
-ForWhom    sand → foam
-About      foam → tide/10
-CTA        tide/10 → deep (bestehend)
+src/routes/
+  index.tsx          /              Startseite (Teaser aller Bereiche)
+  angebote.tsx       /angebote      Übersicht aller 4 Angebotsbereiche
+  workshops.tsx      /workshops     Komplette Workshop-Liste
+  fuer-wen.tsx       /fuer-wen      Zielgruppen (4 Tabs)
+  ueber.tsx          /ueber         Vita, Qualifikationen, Sinnsprüche
+  bgm.tsx            /bgm           BGM-Detail + Referenzen (Helios, Vitra, Roche)
+  kontakt.tsx        /kontakt       Kontaktdaten + Anfahrt
 ```
 
-Jede Sektion endet farblich dort, wo die nächste beginnt. Keine sichtbaren Bruchstellen mehr.
+Jede Route bekommt eigenes `head()` mit individuellem Title, Description, og:title, og:description (kein Copy-Paste vom Home).
 
-**2. Wellen-Übergänge zwischen jeder Sektion**
+Navigation wird zu echten `<Link to="...">` umgebaut statt `<a href="#...">`.
 
-`WaveDivider` wird zur zentralen Übergangskomponente ausgebaut:
-- 3–4 zusätzliche Wellenpfade (sanft, mittel, doppelt-geschichtet) als Varianten
-- Neue Komponente `SectionTransition.tsx`, die Wellen + Farbübergang als ein Element kapselt — `from`/`to` Farb-Props, `variant`, optional `flip`
-- Eingesetzt zwischen: Hero↔Approach, Approach↔Offerings, Offerings↔ForWhom, ForWhom↔About, About↔CTA
-- Mehrlagige Wellen (2 SVGs übereinander, leicht versetzt, unterschiedliche Opazität) für Tiefenwirkung wie am Meer
+**Shared Layout**: Navigation + Footer in `__root.tsx` (sind sie schon) — Inhalt der Unterseiten erscheint im `<Outlet />`.
 
-**3. Schwebende Verbindungselemente**
+## B) Inhalte aus Simones Notizen
 
-Damit der Blick zwischen Sektionen nicht "anhält":
-- Dezente Blob-Akzente (bestehende `BlobShape`) ragen über Sektionsgrenzen hinweg — z. B. ein Sand-Blob, der unten in Approach beginnt und oben in Offerings endet
-- Sehr langsamer Parallax auf 1–2 dieser Blobs via `framer-motion useScroll`
-- Vereinzelte Sand-/Tide-Punktreihen (wie schon im Hero) als wiederkehrendes "Strand"-Motiv an Übergängen
-- Sektions-Padding leicht reduziert (py-28→py-24), damit die Übergänge selbst Atemraum bekommen
+### Startseite (Teaser)
+- **Hero**: Headline „Leben im Gleichgewicht — innen wie außen" (Simones Leitsatz).
+- **Approach**: Simones eigene Worte (Selbstwirksamkeit, ganzheitlich körperlich + geistig-seelisch).
+- **Angebote-Teaser**: 4 kompakte Karten → linken auf `/angebote`.
+- **Workshop-Teaser**: 3–4 ausgewählte Workshops → Link auf `/workshops`.
+- **Über-Teaser**: Kurz-Vita + Foto → Link auf `/ueber`.
+- **Sinnsprüche-Band**: Simones 3 Leitsätze.
+- **CTA**: → `/kontakt`.
 
-## Technische Umsetzung
+### /angebote
+4 Bereiche, jeweils mit Detailtext:
+1. Einzeltherapie & Personal Training (Physio, Hypnose, Hausbesuche, Heilpraktiker-VO, Abrechnung privat/HP)
+2. Workshops & Kurse (Link → `/workshops`)
+3. BGM (Link → `/bgm`)
+4. Brain-Move für Kinder (NEU, 4–10 Jahre, Kitas/Grundschulen)
 
-**Geänderte/neue Dateien:**
+### /workshops
+Alle 10 Workshops aus den Notizen mit je 1–2 Sätzen:
+Kreuz mit dem Kreuz · Fasziengesundheit am Arbeitsplatz · Die Schulter · Wellness für das ISG · Koordinationstraining · Schulter-Nacken-Entspannung · Gesundes Krafttraining · Die Hände auf Händen tragen · Workshop Menopause · Brain-Move (Kinder & Eltern)
 
-```text
-src/components/site/WaveDivider.tsx     erweitert: variants (calm, layered, deep), Höhen-Prop
-src/components/site/SectionTransition.tsx   NEU: kombiniert 1–2 Wellen + Farbverlauf
-src/components/site/FloatingAccent.tsx      NEU: schwebende Blobs/Punkte mit Parallax
-src/routes/index.tsx                    SectionTransitions zwischen alle Sektionen
-src/components/site/Approach.tsx        bg-Verlauf statt solid
-src/components/site/Offerings.tsx       bg-Verlauf angepasst
-src/components/site/ForWhom.tsx         bg-Verlauf statt solid
-src/components/site/AboutSimone.tsx     bg-Verlauf statt solid
-src/components/site/CtaBand.tsx         bestehender WaveDivider durch SectionTransition ersetzt
-src/styles.css                          ggf. 1–2 neue Verlaufs-Tokens (--gradient-shore-soft etc.)
-```
+### /fuer-wen
+4 Zielgruppen-Sektionen: Einzelpersonen · Unternehmen (BGM) · Frauen in Wechseljahren · Kinder & Jugendliche.
 
-**Keine** Inhaltsänderungen, **keine** neuen Sektionen, **keine** Backend-Arbeit. Reines Visual-/Übergangs-Refinement im Frontend.
+### /ueber
+- Echte Vita: 53 J., 30+ J. Physio, 15 J. Kursleitung, 10 J. Gesundheitstage, 3 J. BGM.
+- Stats-Block ersetzt durch `30+ J. Physio · 15 J. Kursleitung · 10 J. Gesundheitstage`.
+- Qualifikations-Badges (Physio & sektorale Heilpraktikerin · Resilienz · Faszien · Psych. Beraterin · Hypnose · Qigong/Feldenkrais/Alexandertechnik/Atem/Achtsamkeit).
+- Sinnsprüche-Sektion.
 
-## Nicht im Scope
+### /bgm
+- BGM-Programmbeschreibung (§ 20 SGB V, Arbeitssicherheit, Gesundheitstage).
+- Referenzen-Leiste: **Helios · Vitra · Roche** (Text-Badges, keine Logos ohne Freigabe).
+- Förder-Hinweis mit Link zur BMI-Förderseite.
+- CTA → `/kontakt`.
 
-- Neue Inhalte oder Texte
-- Änderungen an Typografie, Farbpalette oder Layout der einzelnen Sektionen selbst
-- Unterseiten
+### /kontakt
+- `hallo@simone-rothlübbers.de`
+- `0176 31345153`
+- Röttgen 123, 42109 Wuppertal
+- Kein Formular-Backend in diesem Schritt (mailto + tel-Links).
 
-Nach Freigabe setze ich das in einem Durchgang um.
+### Footer
+Echte Kontaktdaten, Nav-Links auf die neuen Routen, Platzhalter-Links für Impressum/Datenschutz (kommen separat).
+
+## Wieder­verwendung
+Bestehende Komponenten (`Hero`, `Approach`, `Offerings`, `ForWhom`, `AboutSimone`, `CtaBand`, `SectionTransition`, `WaveDivider`, `FloatingAccent`) werden weiter genutzt — die Unterseiten setzen sich aus diesen Bausteinen + neuen kleineren Sub-Komponenten (Workshop-Karte, Qualifikations-Badge, Referenz-Leiste) zusammen. Design, Farben, Übergänge bleiben unverändert.
+
+## Was NICHT enthalten ist
+- Kein Backend / Kontaktformular (separater Schritt).
+- Keine Impressum-/Datenschutz-Inhalte (kommen, wenn Rechtsdaten da sind).
+- Keine neuen Bilder generiert — bestehende Assets bleiben.
+
+## Hinweis Umlaut-Domain
+`hallo@simone-rothlübbers.de` wird im UI mit Umlaut angezeigt; falls die Mailbox technisch unter Punycode (`xn--simone-rothlbbers-elb.de`) liegt, ist das später ein einfacher Tausch.
