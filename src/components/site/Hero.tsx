@@ -85,10 +85,6 @@ export function Hero() {
               variant={2}
               className="absolute inset-0 -translate-x-6 translate-y-6 text-sand"
             />
-            <BlobShape
-              variant={3}
-              className="absolute -right-6 -top-6 h-32 w-32 text-tide/80"
-            />
 
             <div
               className="relative h-full w-full overflow-hidden shadow-soft"
