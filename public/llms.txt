@@ -1,0 +1,13 @@
+# Simone Rothlübbers
+
+> Physiotherapie, Resilienz-Training und Betriebliches Gesundheitsmanagement aus Wuppertal — für Menschen und Unternehmen, die in Bewegung bleiben wollen.
+
+## Pages
+
+- [Startseite](/): Übersicht und Einstieg in das ganzheitliche Angebot.
+- [Angebote](/angebote): Einzeltherapie, Workshops, BGM und Brain-Move für Kinder.
+- [Workshops](/workshops): Workshops und Kurse zu Rücken, Faszien, Resilienz, Wechseljahren und mehr.
+- [Für wen](/fuer-wen): Zielgruppen — Einzelpersonen, Unternehmen, Frauen, Kinder.
+- [Über Simone](/ueber): Vita, Qualifikationen und Arbeitsweise.
+- [BGM](/bgm): Betriebliches Gesundheitsmanagement nach Leitfaden Prävention.
+- [Kontakt](/kontakt): Adresse, Telefon und E-Mail in Wuppertal.
