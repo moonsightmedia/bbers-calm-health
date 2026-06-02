@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
-import logoLight from "@/assets/logo-light.png.asset.json";
+import logoLight from "@/assets/logo-light.png";
 
 const navLinks = [
   { label: "Startseite", to: "/" },
@@ -26,7 +26,7 @@ export function Footer() {
         <div className="md:col-span-2">
           <div className="flex items-center">
             <img
-              src={logoLight.url}
+              src={logoLight}
               alt="Simone Rothlübbers"
               className="h-16 w-auto md:h-20"
             />
