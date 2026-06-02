@@ -29,7 +29,7 @@ export function SectionTransition({
   return (
     <div
       aria-hidden
-      className="relative w-full overflow-hidden"
+      className="relative -mb-px w-full overflow-hidden"
       style={{
         background: from,
         height,
@@ -41,13 +41,13 @@ export function SectionTransition({
           variant="swell"
           fill={accent}
           opacity={0.55}
-          className="absolute inset-x-0 bottom-0 h-full w-full"
+          className="absolute inset-x-0 -bottom-px h-[calc(100%+1px)] w-full"
         />
       )}
       <WaveDivider
         variant="calm"
         fill={to}
-        className="absolute inset-x-0 bottom-0 h-full w-full"
+        className="absolute inset-x-0 -bottom-px h-[calc(100%+1px)] w-full"
       />
     </div>
   );
