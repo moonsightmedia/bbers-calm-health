@@ -1,145 +1,142 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play, Quote } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import portraitAsset from "@/assets/simone-portrait.jpg.asset.json";
 const portrait = portraitAsset.url;
-import { BlobShape } from "./BlobShape";
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-32 pb-24 md:pt-40 md:pb-32">
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <motion.div
-          className="absolute -left-40 top-20 h-[520px] w-[520px] rounded-full bg-tide/10 blur-3xl"
-          animate={{ y: [0, 24, 0], x: [0, 12, 0] }}
-          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute -right-32 -top-10 h-[420px] w-[420px] rounded-full bg-sand/40 blur-3xl"
-          animate={{ y: [0, -20, 0], x: [0, -10, 0] }}
-          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </div>
+    <section
+      id="top"
+      className="relative flex min-h-[calc(100vh-5rem)] w-full items-center justify-center overflow-hidden bg-foam px-6 py-20 md:py-28 lg:p-12"
+    >
+      {/* Background decorative blob */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-32 -top-32 h-96 w-96 rounded-full bg-sand/15 blur-3xl"
+      />
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute -right-24 bottom-10 h-[420px] w-[420px] rounded-full bg-tide/10 blur-3xl"
+        animate={{ y: [0, 18, 0], x: [0, -12, 0] }}
+        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+      />
 
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 md:px-10 lg:grid-cols-12">
+      <div className="relative mx-auto flex w-full max-w-7xl flex-col items-center gap-12 lg:flex-row lg:gap-20">
+        {/* Content Side */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="lg:col-span-6"
+          className="z-10 flex w-full flex-col items-start space-y-8 lg:w-1/2"
         >
-          <span className="inline-flex items-center gap-2 rounded-full bg-deep/5 px-4 py-1.5 text-xs uppercase tracking-[0.18em] text-deep/70">
+          <span className="inline-flex items-center gap-2 rounded-full border border-tide/20 bg-foam/40 px-4 py-1.5 backdrop-blur-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-tide" />
-            Ganzheitliche Gesundheit · Wuppertal
+            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-deep">
+              Ganzheitliche Gesundheit · Wuppertal
+            </span>
           </span>
 
-          <h1 className="mt-6 font-display text-[2.6rem] leading-[1.05] text-deep md:text-[3.6rem] lg:text-[4.2rem]">
-            Leben im{" "}
-            <span className="relative inline-block italic text-tide">
+          <h1 className="font-display text-5xl font-light leading-[1.1] text-deep lg:text-7xl">
+            Leben im <br />
+            <span className="relative inline-block italic font-normal text-tide">
               Gleichgewicht
               <svg
-                viewBox="0 0 220 14"
-                className="absolute -bottom-2 left-0 h-3 w-full text-sand"
+                className="absolute -bottom-1 left-0 h-2 w-full text-sand/60"
+                viewBox="0 0 240 12"
+                fill="none"
                 aria-hidden
               >
                 <motion.path
-                  d="M2,8 Q55,1 110,7 T218,6"
+                  d="M2 10C60 2.5 180 2.5 238 10"
                   stroke="currentColor"
-                  strokeWidth="3"
-                  fill="none"
+                  strokeWidth="4"
                   strokeLinecap="round"
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
                   transition={{ duration: 1.2, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
                 />
               </svg>
-            </span>
+            </span>{" "}
             <br />
             — innen wie außen.
           </h1>
 
-          <p className="mt-7 max-w-xl text-lg leading-relaxed text-deep/75">
+          <p className="max-w-lg text-lg font-light leading-relaxed text-deep/80 lg:text-xl">
             Als Physiotherapeutin, Resilienz&shy;trainerin und psychologische
             Beraterin begleite ich Menschen und Unternehmen zu mehr Gesundheit,
             Selbst&shy;wirksamkeit und innerer Stärke — fundiert, ruhig und
             persönlich.
           </p>
 
-          <div className="mt-9 flex flex-wrap items-center gap-5">
+          <div className="flex flex-wrap items-center gap-6 pt-2">
             <Link
               to="/kontakt"
-              className="group inline-flex items-center gap-3 rounded-full bg-deep px-7 py-4 text-foam shadow-[0_18px_40px_-18px_var(--deep)] transition-all hover:bg-tide hover:shadow-[0_22px_50px_-18px_var(--tide)]"
+              className="group inline-flex items-center gap-2 rounded-full bg-deep px-8 py-4 font-medium text-foam transition-all hover:bg-tide hover:shadow-glow"
             >
               Termin vereinbaren
-              <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
               to="/angebote"
-              className="inline-flex items-center gap-3 text-deep/80 hover:text-deep"
+              className="group inline-flex items-center gap-3 font-medium text-deep transition-colors hover:text-tide"
             >
-              <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-deep/20 bg-foam text-deep">
-                <Play size={14} fill="currentColor" />
+              <span className="flex h-12 w-12 items-center justify-center rounded-full border border-tide/30 bg-tide/5 transition-colors group-hover:bg-tide/10">
+                <Play size={12} className="ml-0.5" fill="currentColor" />
               </span>
-              Angebote entdecken
+              <span>Angebote entdecken</span>
             </Link>
           </div>
         </motion.div>
 
+        {/* Image Side */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-          className="relative lg:col-span-6"
+          transition={{ duration: 1.1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          className="relative flex w-full justify-center lg:w-1/2"
         >
-          <div className="relative mx-auto aspect-[4/5] w-full max-w-[520px]">
-            <BlobShape
-              variant={2}
-              className="absolute inset-0 -translate-x-6 translate-y-6 text-sand"
-            />
+          <div className="relative aspect-[4/5] w-full max-w-[480px]">
+            {/* Arch Frame Outline */}
+            <div className="absolute -inset-4 -z-10 translate-x-4 translate-y-4 rounded-t-full border border-sand opacity-60" />
 
-            <div
-              className="relative h-full w-full overflow-hidden shadow-soft"
-              style={{
-                clipPath:
-                  "path('M260 10 C420 10 510 110 510 260 C510 410 410 510 260 510 C110 510 10 410 10 260 C10 110 100 10 260 10 Z')",
-                WebkitClipPath:
-                  "path('M260 10 C420 10 510 110 510 260 C510 410 410 510 260 510 C110 510 10 410 10 260 C10 110 100 10 260 10 Z')",
-              }}
-            >
+            {/* Portrait in arch */}
+            <div className="h-full w-full overflow-hidden rounded-t-full bg-sand/20 shadow-soft">
               <img
                 src={portrait}
                 alt="Porträt von Simone Rothlübbers"
                 width={1024}
-                height={1024}
+                height={1280}
                 className="h-full w-full object-cover"
               />
             </div>
 
-            <div className="absolute -right-4 top-1/3 flex flex-col gap-3">
-              <span className="h-3 w-3 rounded-full bg-sand" />
-              <span className="h-3 w-3 rounded-full bg-tide" />
-              <span className="h-3 w-3 rounded-full bg-deep" />
-            </div>
-
+            {/* Floating quote card */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.8 }}
-              className="absolute -bottom-6 -left-6 max-w-[260px] rounded-2xl bg-foam/95 p-5 shadow-soft backdrop-blur"
+              className="absolute -bottom-10 -left-6 max-w-[300px] rounded-2xl border border-foam bg-foam/95 p-6 shadow-soft backdrop-blur lg:-left-16 lg:p-8"
             >
-              <motion.div
-                animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <p className="font-display text-[15px] italic leading-snug text-deep">
-                  „Verständnis und Annahme von dem, was ist, schafft den
-                  richtigen Nährboden für das Neue."
-                </p>
-                <p className="mt-2 text-xs uppercase tracking-[0.18em] text-tide">
-                  — Simone
-                </p>
-              </motion.div>
+              <Quote size={28} className="mb-4 text-sand" />
+              <p className="font-display text-base italic leading-relaxed text-deep lg:text-lg">
+                Verständnis und Annahme von dem, was ist, schafft den
+                richtigen Nährboden für das Neue.
+              </p>
+              <div className="mt-5 flex items-center gap-3">
+                <span className="h-px w-8 bg-tide" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-tide">
+                  Simone Rothlübbers
+                </span>
+              </div>
             </motion.div>
+
+            {/* Decorative dots */}
+            <div className="absolute -right-8 top-1/2 flex -translate-y-1/2 flex-col gap-5">
+              <span className="h-1.5 w-1.5 rounded-full bg-sand" />
+              <span className="h-1.5 w-1.5 rounded-full bg-tide" />
+              <span className="h-1.5 w-1.5 rounded-full bg-deep/20" />
+            </div>
           </div>
         </motion.div>
       </div>
