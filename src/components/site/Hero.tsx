@@ -8,7 +8,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[calc(100vh-5rem)] w-full items-center justify-center overflow-hidden bg-foam px-6 py-20 md:py-28 lg:p-12"
+      className="relative flex min-h-[calc(100vh-5rem)] w-full items-center justify-center overflow-hidden bg-foam px-6 pt-32 pb-20 md:pt-40 md:pb-28 lg:px-12 lg:pt-44 lg:pb-16"
     >
       {/* Background decorative blob */}
       <div
