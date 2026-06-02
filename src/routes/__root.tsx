@@ -1,6 +1,8 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { Navigation } from "@/components/site/Navigation";
 import { Footer } from "@/components/site/Footer";
+import iconDark from "@/assets/icon-dark.png.asset.json";
+import iconLight from "@/assets/icon-light.png.asset.json";
 
 import appCss from "../styles.css?url";
 
@@ -45,6 +47,8 @@ export const Route = createRootRoute({
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "icon", type: "image/png", href: iconDark.url },
+      { rel: "apple-touch-icon", href: iconLight.url },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
