@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import portraitAsset from "@/assets/simone-portrait.jpg.asset.json";
-const portrait = portraitAsset.url;
+import portrait from "@/assets/simone-portrait.jpg";
 
 const stats = [
   { value: "30+", label: "Jahre Physiotherapie" },
