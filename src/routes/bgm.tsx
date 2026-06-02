@@ -8,7 +8,7 @@ import { CtaBand } from "@/components/site/CtaBand";
 export const Route = createFileRoute("/bgm")({
   head: () => ({
     meta: [
-      { title: "Betriebliches Gesundheitsmanagement — Simone Rothlübbers" },
+      { title: "BGM & Gesundheitstage — Simone Rothlübbers" },
       { name: "description", content: "BGM-Programme, Workshops und Gesundheitstage nach Leitfaden Prävention (§ 20 SGB V) — für Unternehmen, Kliniken und Einrichtungen." },
       { property: "og:title", content: "BGM — Simone Rothlübbers" },
       { property: "og:description", content: "Ganzheitliches Betriebliches Gesundheits­management für Unternehmen und Kliniken." },

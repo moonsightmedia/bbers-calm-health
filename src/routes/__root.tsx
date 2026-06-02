@@ -33,8 +33,8 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Simone Rothlübbers — Ganzheitliche Gesundheit, Resilienz & Bewegung" },
-      { name: "description", content: "Physiotherapie, Resilienz & Betriebliches Gesundheitsmanagement aus Wuppertal — Simone Rothlübbers begleitet Menschen und Unternehmen zu mehr Gesundheit und innerer Stärke." },
+      { title: "Simone Rothlübbers — Physiotherapie & BGM Wuppertal" },
+      { name: "description", content: "Physiotherapie, Resilienz-Training und Betriebliches Gesundheitsmanagement aus Wuppertal — für Menschen und Unternehmen in Bewegung." },
       { name: "author", content: "Simone Rothlübbers" },
       { property: "og:title", content: "Simone Rothlübbers — Ganzheitliche Gesundheit" },
       { property: "og:description", content: "Leben im Gleichgewicht — innen wie außen. Physiotherapie, Resilienz, BGM und Brain-Move für Kinder." },
@@ -54,6 +54,26 @@ export const Route = createRootRoute({
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter+Tight:wght@300;400;500;600&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Simone Rothlübbers",
+          jobTitle: "Physiotherapeutin & Resilienztrainerin",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Röttgen 123",
+            postalCode: "42109",
+            addressLocality: "Wuppertal",
+            addressCountry: "DE",
+          },
+          telephone: "+49 176 31345153",
+          email: "hallo@simone-rothlübbers.de",
+        }),
       },
     ],
   }),
