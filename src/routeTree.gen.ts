@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorkshopsRouteImport } from './routes/workshops'
 import { Route as UeberRouteImport } from './routes/ueber'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as FuerWenRouteImport } from './routes/fuer-wen'
 import { Route as BgmRouteImport } from './routes/bgm'
@@ -25,6 +26,11 @@ const WorkshopsRoute = WorkshopsRouteImport.update({
 const UeberRoute = UeberRouteImport.update({
   id: '/ueber',
   path: '/ueber',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KontaktRoute = KontaktRouteImport.update({
@@ -59,6 +65,7 @@ export interface FileRoutesByFullPath {
   '/bgm': typeof BgmRoute
   '/fuer-wen': typeof FuerWenRoute
   '/kontakt': typeof KontaktRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ueber': typeof UeberRoute
   '/workshops': typeof WorkshopsRoute
 }
@@ -68,6 +75,7 @@ export interface FileRoutesByTo {
   '/bgm': typeof BgmRoute
   '/fuer-wen': typeof FuerWenRoute
   '/kontakt': typeof KontaktRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ueber': typeof UeberRoute
   '/workshops': typeof WorkshopsRoute
 }
@@ -78,6 +86,7 @@ export interface FileRoutesById {
   '/bgm': typeof BgmRoute
   '/fuer-wen': typeof FuerWenRoute
   '/kontakt': typeof KontaktRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ueber': typeof UeberRoute
   '/workshops': typeof WorkshopsRoute
 }
@@ -89,6 +98,7 @@ export interface FileRouteTypes {
     | '/bgm'
     | '/fuer-wen'
     | '/kontakt'
+    | '/sitemap.xml'
     | '/ueber'
     | '/workshops'
   fileRoutesByTo: FileRoutesByTo
@@ -98,6 +108,7 @@ export interface FileRouteTypes {
     | '/bgm'
     | '/fuer-wen'
     | '/kontakt'
+    | '/sitemap.xml'
     | '/ueber'
     | '/workshops'
   id:
@@ -107,6 +118,7 @@ export interface FileRouteTypes {
     | '/bgm'
     | '/fuer-wen'
     | '/kontakt'
+    | '/sitemap.xml'
     | '/ueber'
     | '/workshops'
   fileRoutesById: FileRoutesById
@@ -117,6 +129,7 @@ export interface RootRouteChildren {
   BgmRoute: typeof BgmRoute
   FuerWenRoute: typeof FuerWenRoute
   KontaktRoute: typeof KontaktRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UeberRoute: typeof UeberRoute
   WorkshopsRoute: typeof WorkshopsRoute
 }
@@ -135,6 +148,13 @@ declare module '@tanstack/react-router' {
       path: '/ueber'
       fullPath: '/ueber'
       preLoaderRoute: typeof UeberRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kontakt': {
@@ -181,6 +201,7 @@ const rootRouteChildren: RootRouteChildren = {
   BgmRoute: BgmRoute,
   FuerWenRoute: FuerWenRoute,
   KontaktRoute: KontaktRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   UeberRoute: UeberRoute,
   WorkshopsRoute: WorkshopsRoute,
 }
