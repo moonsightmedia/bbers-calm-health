@@ -34,7 +34,7 @@ export function Navigation() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-10">
         <Link to="/" className="group flex items-center">
           <img
-            src={logoDark.url}
+            src={logoDark}
             alt="Simone Rothlübbers"
             className="h-12 w-auto md:h-14"
           />
