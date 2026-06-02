@@ -13,6 +13,27 @@ export const Route = createFileRoute("/kontakt")({
       { property: "og:url", content: "/kontakt" },
     ],
     links: [{ rel: "canonical", href: "/kontakt" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "Simone Rothlübbers — Physiotherapie & BGM",
+          image: undefined,
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Röttgen 123",
+            postalCode: "42109",
+            addressLocality: "Wuppertal",
+            addressCountry: "DE",
+          },
+          telephone: "+49 176 31345153",
+          email: "hallo@simone-rothlübbers.de",
+          areaServed: "Wuppertal",
+        }),
+      },
+    ],
   }),
   component: KontaktPage,
 });

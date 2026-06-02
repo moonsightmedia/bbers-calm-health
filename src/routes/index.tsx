@@ -11,8 +11,8 @@ import { SectionTransition } from "@/components/site/SectionTransition";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Simone Rothlübbers — Ganzheitliche Gesundheit, Resilienz & Bewegung" },
-      { name: "description", content: "Physiotherapie, Resilienz-Training und Betriebliches Gesundheits­management aus Wuppertal — für Menschen und Unternehmen, die in Bewegung bleiben wollen." },
+      { title: "Bewegung, Resilienz & BGM — Wuppertal" },
+      { name: "description", content: "Ganzheitliche Physiotherapie, Resilienz-Training und BGM aus Wuppertal — für Menschen und Unternehmen, die in Bewegung bleiben wollen." },
       { property: "og:title", content: "Simone Rothlübbers — Leben im Gleichgewicht" },
       { property: "og:description", content: "Bewegung, Resilienz und persönliche Begleitung — innen wie außen." },
       { property: "og:url", content: "/" },

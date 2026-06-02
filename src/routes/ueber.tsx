@@ -7,7 +7,7 @@ import { CtaBand } from "@/components/site/CtaBand";
 export const Route = createFileRoute("/ueber")({
   head: () => ({
     meta: [
-      { title: "Über Simone Rothlübbers — Physiotherapeutin & Resilienztrainerin" },
+      { title: "Über Simone — Physiotherapeutin in Wuppertal" },
       { name: "description", content: "Über 30 Jahre Physiotherapie, 15 Jahre Kursleitung, 10 Jahre Gesundheitstage — Simones Vita, Qualifikationen und ganzheitliches Verständnis von Gesundheit." },
       { property: "og:title", content: "Über Simone Rothlübbers" },
       { property: "og:description", content: "Physiotherapeutin, Resilienztrainerin, Faszientrainerin und psychologische Beraterin aus Wuppertal." },
