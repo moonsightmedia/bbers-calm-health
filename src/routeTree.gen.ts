@@ -9,8 +9,44 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WorkshopsRouteImport } from './routes/workshops'
+import { Route as UeberRouteImport } from './routes/ueber'
+import { Route as KontaktRouteImport } from './routes/kontakt'
+import { Route as FuerWenRouteImport } from './routes/fuer-wen'
+import { Route as BgmRouteImport } from './routes/bgm'
+import { Route as AngeboteRouteImport } from './routes/angebote'
 import { Route as IndexRouteImport } from './routes/index'
 
+const WorkshopsRoute = WorkshopsRouteImport.update({
+  id: '/workshops',
+  path: '/workshops',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UeberRoute = UeberRouteImport.update({
+  id: '/ueber',
+  path: '/ueber',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontaktRoute = KontaktRouteImport.update({
+  id: '/kontakt',
+  path: '/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FuerWenRoute = FuerWenRouteImport.update({
+  id: '/fuer-wen',
+  path: '/fuer-wen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BgmRoute = BgmRouteImport.update({
+  id: '/bgm',
+  path: '/bgm',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AngeboteRoute = AngeboteRouteImport.update({
+  id: '/angebote',
+  path: '/angebote',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +55,116 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/angebote': typeof AngeboteRoute
+  '/bgm': typeof BgmRoute
+  '/fuer-wen': typeof FuerWenRoute
+  '/kontakt': typeof KontaktRoute
+  '/ueber': typeof UeberRoute
+  '/workshops': typeof WorkshopsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/angebote': typeof AngeboteRoute
+  '/bgm': typeof BgmRoute
+  '/fuer-wen': typeof FuerWenRoute
+  '/kontakt': typeof KontaktRoute
+  '/ueber': typeof UeberRoute
+  '/workshops': typeof WorkshopsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/angebote': typeof AngeboteRoute
+  '/bgm': typeof BgmRoute
+  '/fuer-wen': typeof FuerWenRoute
+  '/kontakt': typeof KontaktRoute
+  '/ueber': typeof UeberRoute
+  '/workshops': typeof WorkshopsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/angebote'
+    | '/bgm'
+    | '/fuer-wen'
+    | '/kontakt'
+    | '/ueber'
+    | '/workshops'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/angebote'
+    | '/bgm'
+    | '/fuer-wen'
+    | '/kontakt'
+    | '/ueber'
+    | '/workshops'
+  id:
+    | '__root__'
+    | '/'
+    | '/angebote'
+    | '/bgm'
+    | '/fuer-wen'
+    | '/kontakt'
+    | '/ueber'
+    | '/workshops'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AngeboteRoute: typeof AngeboteRoute
+  BgmRoute: typeof BgmRoute
+  FuerWenRoute: typeof FuerWenRoute
+  KontaktRoute: typeof KontaktRoute
+  UeberRoute: typeof UeberRoute
+  WorkshopsRoute: typeof WorkshopsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/workshops': {
+      id: '/workshops'
+      path: '/workshops'
+      fullPath: '/workshops'
+      preLoaderRoute: typeof WorkshopsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ueber': {
+      id: '/ueber'
+      path: '/ueber'
+      fullPath: '/ueber'
+      preLoaderRoute: typeof UeberRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kontakt': {
+      id: '/kontakt'
+      path: '/kontakt'
+      fullPath: '/kontakt'
+      preLoaderRoute: typeof KontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fuer-wen': {
+      id: '/fuer-wen'
+      path: '/fuer-wen'
+      fullPath: '/fuer-wen'
+      preLoaderRoute: typeof FuerWenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bgm': {
+      id: '/bgm'
+      path: '/bgm'
+      fullPath: '/bgm'
+      preLoaderRoute: typeof BgmRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/angebote': {
+      id: '/angebote'
+      path: '/angebote'
+      fullPath: '/angebote'
+      preLoaderRoute: typeof AngeboteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +177,12 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AngeboteRoute: AngeboteRoute,
+  BgmRoute: BgmRoute,
+  FuerWenRoute: FuerWenRoute,
+  KontaktRoute: KontaktRoute,
+  UeberRoute: UeberRoute,
+  WorkshopsRoute: WorkshopsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
