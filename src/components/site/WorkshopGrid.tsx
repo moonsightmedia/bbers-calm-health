@@ -112,9 +112,9 @@ export function WorkshopGrid({ limit }: Props) {
                 {w.tag}
               </span>
             </div>
-            <h3 className="mt-5 font-display text-xl leading-snug text-deep">
+            <h2 className="mt-5 font-display text-xl leading-snug text-deep">
               {w.title}
-            </h3>
+            </h2>
             <p className="mt-3 text-sm leading-relaxed text-deep/70">{w.text}</p>
           </div>
         </motion.article>
