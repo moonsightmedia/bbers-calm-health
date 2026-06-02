@@ -6,7 +6,7 @@ export function CtaBand() {
   return (
     <section id="kontakt" className="relative overflow-hidden">
       <SectionTransition
-        from="color-mix(in oklab, var(--tide) 12%, var(--foam))"
+        from="var(--sand)"
         to="var(--deep)"
         height={140}
       />
