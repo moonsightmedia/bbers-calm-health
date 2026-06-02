@@ -69,7 +69,11 @@ export function Footer() {
               <MapPin size={14} className="mt-1 shrink-0" />
               <span>Röttgen 123, 42109 Wuppertal</span>
             </li>
-            <li className="pt-3 text-foam/55">Impressum · Datenschutz</li>
+            <li className="pt-3 flex gap-3 text-foam/55">
+              <Link to="/impressum" className="hover:text-sand">Impressum</Link>
+              <span aria-hidden>·</span>
+              <Link to="/datenschutz" className="hover:text-sand">Datenschutz</Link>
+            </li>
           </ul>
         </div>
       </motion.div>

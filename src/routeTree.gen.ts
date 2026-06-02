@@ -13,7 +13,9 @@ import { Route as WorkshopsRouteImport } from './routes/workshops'
 import { Route as UeberRouteImport } from './routes/ueber'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as KontaktRouteImport } from './routes/kontakt'
+import { Route as ImpressumRouteImport } from './routes/impressum'
 import { Route as FuerWenRouteImport } from './routes/fuer-wen'
+import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as BgmRouteImport } from './routes/bgm'
 import { Route as AngeboteRouteImport } from './routes/angebote'
 import { Route as IndexRouteImport } from './routes/index'
@@ -38,9 +40,19 @@ const KontaktRoute = KontaktRouteImport.update({
   path: '/kontakt',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ImpressumRoute = ImpressumRouteImport.update({
+  id: '/impressum',
+  path: '/impressum',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FuerWenRoute = FuerWenRouteImport.update({
   id: '/fuer-wen',
   path: '/fuer-wen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatenschutzRoute = DatenschutzRouteImport.update({
+  id: '/datenschutz',
+  path: '/datenschutz',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BgmRoute = BgmRouteImport.update({
@@ -63,7 +75,9 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/angebote': typeof AngeboteRoute
   '/bgm': typeof BgmRoute
+  '/datenschutz': typeof DatenschutzRoute
   '/fuer-wen': typeof FuerWenRoute
+  '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ueber': typeof UeberRoute
@@ -73,7 +87,9 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/angebote': typeof AngeboteRoute
   '/bgm': typeof BgmRoute
+  '/datenschutz': typeof DatenschutzRoute
   '/fuer-wen': typeof FuerWenRoute
+  '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ueber': typeof UeberRoute
@@ -84,7 +100,9 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/angebote': typeof AngeboteRoute
   '/bgm': typeof BgmRoute
+  '/datenschutz': typeof DatenschutzRoute
   '/fuer-wen': typeof FuerWenRoute
+  '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ueber': typeof UeberRoute
@@ -96,7 +114,9 @@ export interface FileRouteTypes {
     | '/'
     | '/angebote'
     | '/bgm'
+    | '/datenschutz'
     | '/fuer-wen'
+    | '/impressum'
     | '/kontakt'
     | '/sitemap.xml'
     | '/ueber'
@@ -106,7 +126,9 @@ export interface FileRouteTypes {
     | '/'
     | '/angebote'
     | '/bgm'
+    | '/datenschutz'
     | '/fuer-wen'
+    | '/impressum'
     | '/kontakt'
     | '/sitemap.xml'
     | '/ueber'
@@ -116,7 +138,9 @@ export interface FileRouteTypes {
     | '/'
     | '/angebote'
     | '/bgm'
+    | '/datenschutz'
     | '/fuer-wen'
+    | '/impressum'
     | '/kontakt'
     | '/sitemap.xml'
     | '/ueber'
@@ -127,7 +151,9 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AngeboteRoute: typeof AngeboteRoute
   BgmRoute: typeof BgmRoute
+  DatenschutzRoute: typeof DatenschutzRoute
   FuerWenRoute: typeof FuerWenRoute
+  ImpressumRoute: typeof ImpressumRoute
   KontaktRoute: typeof KontaktRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UeberRoute: typeof UeberRoute
@@ -164,11 +190,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KontaktRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/impressum': {
+      id: '/impressum'
+      path: '/impressum'
+      fullPath: '/impressum'
+      preLoaderRoute: typeof ImpressumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/fuer-wen': {
       id: '/fuer-wen'
       path: '/fuer-wen'
       fullPath: '/fuer-wen'
       preLoaderRoute: typeof FuerWenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/datenschutz': {
+      id: '/datenschutz'
+      path: '/datenschutz'
+      fullPath: '/datenschutz'
+      preLoaderRoute: typeof DatenschutzRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/bgm': {
@@ -199,7 +239,9 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AngeboteRoute: AngeboteRoute,
   BgmRoute: BgmRoute,
+  DatenschutzRoute: DatenschutzRoute,
   FuerWenRoute: FuerWenRoute,
+  ImpressumRoute: ImpressumRoute,
   KontaktRoute: KontaktRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   UeberRoute: UeberRoute,
@@ -208,12 +250,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}
