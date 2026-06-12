@@ -24,7 +24,7 @@ const tabs = [
     points: [
       "Gesundheitstage & Workshops",
       "Resilienz, Bewegung, Faszien, Ergonomie",
-      "Bereits im Einsatz u. a. bei Helios, Vitra, Roche",
+      "Bereits im Einsatz u. a. bei Helios, Varmade, Roche",
     ],
   },
   {
@@ -44,11 +44,11 @@ const tabs = [
     label: "Kinder & Jugendliche",
     icon: Baby,
     headline: "Brain-Move für Kitas, Grundschulen und Bildungsträger.",
-    text: "Ein Koordinations- und Bewegungstraining, das neue Verschaltungen im Gehirn anregt — für mehr Konzentration, bessere Merkfähigkeit und sicherere Bewegungsabläufe. Auch gemeinsam mit Eltern.",
+    text: "Ein Koordinations- und Bewegungstraining, das neue Verschaltungen im Gehirn anregt — für mehr Konzentration, bessere Merkfähigkeit und sicherere Bewegungsabläufe. Eltern und Erzieher können aktiv teilnehmen.",
     points: [
       "Zielgruppe: 4–10 Jahre",
       "Koordination, Konzentration & Spaß",
-      "Workshops mit Eltern-Beteiligung & Handout",
+      "Workshops mit Eltern- & Erzieher-Beteiligung & Handout",
     ],
   },
 ];

@@ -50,9 +50,19 @@ function ImpressumPage() {
 
           <div>
             <h2 className="font-display text-2xl text-deep">Zuständige Aufsichtsbehörde</h2>
-            <p className="mt-3 italic text-deep/60">
-              [Bitte ergänzen: zuständiges Gesundheitsamt / zuständige Bezirksregierung,
-              Anschrift]
+            <p className="mt-3">
+              Gesundheitsamt der Landeshauptstadt Düsseldorf<br />
+              Kölner Straße 180<br />
+              40227 Düsseldorf<br />
+              Deutschland<br />
+              <a
+                href="https://www.duesseldorf.de/gesundheitsamt"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-tide"
+              >
+                www.duesseldorf.de/gesundheitsamt
+              </a>
             </p>
           </div>
 

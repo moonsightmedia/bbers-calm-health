@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import {
   Activity,
   Sparkles,
@@ -12,6 +11,13 @@ import {
   Waves,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 type Workshop = {
   title: string;
@@ -79,46 +85,55 @@ const workshops: Workshop[] = [
     title: "Brain-Move für Kinder & Eltern",
     tag: "Kinder",
     icon: Baby,
-    text: "Koordination, Bewegung und Konzentration für Kinder im Vorschul- und Grundschulalter — gemeinsam mit den Eltern.",
+    text: "Koordination, Bewegung und Konzentration für Kinder im Vorschul- und Grundschulalter — gemeinsam mit Eltern und Erziehern.",
   },
 ];
 
-type Props = {
-  /** If set, show only the first N workshops (for homepage teaser) */
-  limit?: number;
-};
-
-export function WorkshopGrid({ limit }: Props) {
-  const items = limit ? workshops.slice(0, limit) : workshops;
-
+function WorkshopCard({ workshop: w }: { workshop: Workshop }) {
   return (
-    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {items.map((w, i) => (
-        <motion.article
-          key={w.title}
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.6, delay: (i % 6) * 0.06, ease: [0.22, 1, 0.36, 1] }}
-          className="group relative overflow-hidden rounded-[24px] border border-deep/10 bg-card p-7 transition-all hover:-translate-y-1 hover:shadow-soft"
-        >
-          <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-sand/30 transition-transform duration-700 group-hover:scale-125" />
-          <div className="relative">
-            <div className="flex items-center justify-between gap-3">
-              <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-deep text-foam transition-colors group-hover:bg-tide">
-                <w.icon size={18} strokeWidth={1.7} />
-              </span>
-              <span className="rounded-full bg-sand-light px-3 py-1 text-[11px] uppercase tracking-[0.16em] text-deep/70">
-                {w.tag}
-              </span>
-            </div>
-            <h2 className="mt-5 font-display text-xl leading-snug text-deep">
-              {w.title}
-            </h2>
-            <p className="mt-3 text-sm leading-relaxed text-deep/70">{w.text}</p>
-          </div>
-        </motion.article>
-      ))}
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-[24px] border border-deep/10 bg-card p-7 transition-all hover:-translate-y-1 hover:shadow-soft">
+      <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-sand/30 transition-transform duration-700 group-hover:scale-125" />
+      <div className="relative flex flex-1 flex-col">
+        <div className="flex items-center justify-between gap-3">
+          <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-deep text-foam transition-colors group-hover:bg-tide">
+            <w.icon size={18} strokeWidth={1.7} />
+          </span>
+          <span className="rounded-full bg-sand-light px-3 py-1 text-[11px] uppercase tracking-[0.16em] text-deep/70">
+            {w.tag}
+          </span>
+        </div>
+        <h2 className="mt-5 font-display text-xl leading-snug text-deep">
+          {w.title}
+        </h2>
+        <p className="mt-3 text-sm leading-relaxed text-deep/70">{w.text}</p>
+      </div>
+    </article>
+  );
+}
+
+export function WorkshopGrid() {
+  return (
+    <div className="relative px-12 md:px-14">
+      <Carousel
+        opts={{
+          align: "start",
+          loop: true,
+        }}
+        className="w-full"
+      >
+        <CarouselContent className="-ml-4">
+          {workshops.map((w) => (
+            <CarouselItem
+              key={w.title}
+              className="basis-full pl-4 sm:basis-1/2 lg:basis-1/3"
+            >
+              <WorkshopCard workshop={w} />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className="-left-2 border-deep/20 bg-card text-deep hover:bg-sand-light hover:text-deep md:-left-4" />
+        <CarouselNext className="-right-2 border-deep/20 bg-card text-deep hover:bg-sand-light hover:text-deep md:-right-4" />
+      </Carousel>
     </div>
   );
 }

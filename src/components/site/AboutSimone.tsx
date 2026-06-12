@@ -13,8 +13,14 @@ const qualifications = [
   "Faszientrainerin",
   "Psychologische Beraterin",
   "Hypnose (nicht medizinisch)",
-  "Qigong · Feldenkrais · Alexandertechnik",
-  "Atemtechniken & Achtsamkeit",
+];
+
+const methods = [
+  "Qigong",
+  "Feldenkrais",
+  "Alexandertechnik",
+  "Atemtechniken",
+  "Achtsamkeit",
 ];
 
 type Props = {
@@ -106,21 +112,38 @@ export function AboutSimone({ teaser = false }: Props) {
           </div>
 
           {!teaser && (
-            <div className="mt-10">
-              <h3 className="text-xs uppercase tracking-[0.22em] text-tide">
-                Qualifikationen
-              </h3>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {qualifications.map((q) => (
-                  <span
-                    key={q}
-                    className="rounded-full border border-deep/15 bg-foam px-4 py-2 text-sm text-deep/80"
-                  >
-                    {q}
-                  </span>
-                ))}
+            <>
+              <div className="mt-10">
+                <h3 className="text-xs uppercase tracking-[0.22em] text-tide">
+                  Qualifikationen
+                </h3>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {qualifications.map((q) => (
+                    <span
+                      key={q}
+                      className="rounded-full border border-deep/15 bg-foam px-4 py-2 text-sm text-deep/80"
+                    >
+                      {q}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+              <div className="mt-8">
+                <h3 className="text-xs uppercase tracking-[0.22em] text-tide">
+                  Methoden
+                </h3>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {methods.map((m) => (
+                    <span
+                      key={m}
+                      className="rounded-full border border-deep/15 bg-foam px-4 py-2 text-sm text-deep/80"
+                    >
+                      {m}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </>
           )}
         </motion.div>
       </div>

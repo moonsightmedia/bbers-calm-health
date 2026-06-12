@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ExternalLink, Check } from "lucide-react";
+import { ExternalLink, Check, Gift } from "lucide-react";
 import { PageHeader } from "@/components/site/PageHeader";
 import { References } from "@/components/site/References";
 import { CtaBand } from "@/components/site/CtaBand";
@@ -82,6 +82,23 @@ function BgmPage() {
               className="space-y-6 lg:col-span-5"
             >
               <References />
+
+              <div className="rounded-[28px] border border-deep/10 bg-card p-8">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-tide/15 text-tide">
+                  <Gift size={18} strokeWidth={1.7} />
+                </span>
+                <span className="mt-4 block text-xs uppercase tracking-[0.22em] text-tide">
+                  Mit nach Hause
+                </span>
+                <h3 className="mt-3 font-display text-xl text-deep">
+                  Faszienball & Handout für Ihre Mitarbeitenden
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-deep/70">
+                  Jede Teilnehmerin und jeder Teilnehmer erhält einen Faszienball
+                  und ein Handout mit Übungen — damit das Gelernte auch im
+                  Alltag weitergeübt und vertieft werden kann.
+                </p>
+              </div>
 
               <div className="rounded-[28px] border border-deep/10 bg-card p-8">
                 <span className="text-xs uppercase tracking-[0.22em] text-tide">
