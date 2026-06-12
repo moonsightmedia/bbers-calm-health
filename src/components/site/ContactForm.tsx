@@ -125,7 +125,7 @@ export function ContactForm() {
       <div className="mt-6 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-xs text-deep/60">
           Mit dem Absenden erklärst du dich einverstanden, dass deine Angaben
-          zur Bearbeitung deiner Anfrage gespeichert werden.
+          zur Bearbeitung deiner Anfrage per E-Mail übermittelt werden.
         </p>
         <button
           type="submit"

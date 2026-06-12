@@ -51,7 +51,7 @@ function DatenschutzPage() {
           <div>
             <h2 className="font-display text-2xl text-deep">3. Hosting</h2>
             <p className="mt-3">
-              Diese Website wird bei einem Dienstleister gehostet, der die für den
+              Diese Website wird bei Vercel Inc. gehostet, der die für den
               Betrieb erforderlichen Daten in unserem Auftrag verarbeitet
               (Auftragsverarbeitung gem. Art. 28 DSGVO).
             </p>
@@ -61,12 +61,13 @@ function DatenschutzPage() {
             <h2 className="font-display text-2xl text-deep">4. Kontaktformular</h2>
             <p className="mt-3">
               Wenn Sie das Kontaktformular nutzen, werden die von Ihnen eingegebenen
-              Daten (Name, E-Mail-Adresse, Nachricht) zur Bearbeitung Ihrer Anfrage
-              verarbeitet und sicher in unserer Datenbank gespeichert. Rechtsgrundlage
-              ist Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung) bzw. lit. f
-              (berechtigtes Interesse an der Beantwortung Ihrer Anfrage). Die Daten
-              werden gelöscht, sobald sie für den Zweck der Verarbeitung nicht mehr
-              erforderlich sind, spätestens nach Ablauf gesetzlicher
+              Daten (Name, E-Mail-Adresse, optional Telefon und Betreff, Nachricht)
+              zur Bearbeitung Ihrer Anfrage per E-Mail an uns übermittelt. Der Versand
+              erfolgt über den Dienst Resend (Auftragsverarbeitung gem. Art. 28 DSGVO).
+              Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung) bzw.
+              lit. f (berechtigtes Interesse an der Beantwortung Ihrer Anfrage). Die
+              Daten werden gelöscht, sobald sie für den Zweck der Verarbeitung nicht
+              mehr erforderlich sind, spätestens nach Ablauf gesetzlicher
               Aufbewahrungsfristen.
             </p>
           </div>
