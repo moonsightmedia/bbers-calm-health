@@ -84,7 +84,7 @@ export function Footer() {
           <span>
             Webseite von{" "}
             <a
-              href="https://moonsightmedia.com"
+              href="https://moonsight.media"
               target="_blank"
               rel="noopener noreferrer"
               className="text-foam/75 underline decoration-foam/30 underline-offset-2 transition-colors hover:text-sand hover:decoration-sand"
