@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const references = ["Helios", "Varmade", "Roche"];
+const references = ["Helios", "Wamed", "Roche"];
 
 export function References() {
   return (

@@ -26,7 +26,7 @@ const offers = [
     eyebrow: "Für Unternehmen",
     title: "Betriebliches Gesundheitsmanagement",
     text: "BGM-Programme und Gesundheitstage nach Leitfaden Prävention (§ 20 SGB V) — eingebettet in ein ganzheitliches Konzept zur Gesundheits­förderung der Mitarbeitenden. Drei Jahre Erfahrung in Kliniken und Firmen.",
-    bullets: ["Gesundheitstage & BGM-Programme", "Resilienz & Arbeitssicherheit", "Referenzen: Helios · Varmade · Roche"],
+    bullets: ["Gesundheitstage & BGM-Programme", "Resilienz & Arbeitssicherheit", "Referenzen: Helios · Wamed · Roche"],
     href: "/bgm",
     cta: "BGM entdecken",
   },

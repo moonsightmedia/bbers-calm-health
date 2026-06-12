@@ -24,7 +24,7 @@ const tabs = [
     points: [
       "Gesundheitstage & Workshops",
       "Resilienz, Bewegung, Faszien, Ergonomie",
-      "Bereits im Einsatz u. a. bei Helios, Varmade, Roche",
+      "Bereits im Einsatz u. a. bei Helios, Wamed, Roche",
     ],
   },
   {

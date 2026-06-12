@@ -91,9 +91,8 @@ const workshops: Workshop[] = [
 
 function WorkshopCard({ workshop: w }: { workshop: Workshop }) {
   return (
-    <article className="group relative flex h-full flex-col overflow-hidden rounded-[24px] border border-deep/10 bg-card p-7 transition-all hover:-translate-y-1 hover:shadow-soft">
-      <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-sand/30 transition-transform duration-700 group-hover:scale-125" />
-      <div className="relative flex flex-1 flex-col">
+    <article className="group flex h-full flex-col rounded-[24px] border border-deep/10 bg-card p-7 transition-shadow hover:shadow-soft">
+      <div className="flex flex-1 flex-col">
         <div className="flex items-center justify-between gap-3">
           <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-deep text-foam transition-colors group-hover:bg-tide">
             <w.icon size={18} strokeWidth={1.7} />
@@ -111,9 +110,25 @@ function WorkshopCard({ workshop: w }: { workshop: Workshop }) {
   );
 }
 
+const navButtonClass =
+  "static left-auto right-auto top-auto h-10 w-10 translate-x-0 translate-y-0 border-deep/20 bg-card text-deep shadow-sm hover:bg-sand-light hover:text-deep";
+
 export function WorkshopGrid() {
   return (
-    <div className="relative px-12 md:px-14">
+    <div className="mt-16">
+      <div className="mb-10 max-w-2xl">
+        <span className="text-xs uppercase tracking-[0.22em] text-tide">
+          Workshop-Themen
+        </span>
+        <h2 className="mt-4 font-display text-3xl text-deep md:text-4xl">
+          Beispielthemen für Workshops zum Durchklicken
+        </h2>
+        <p className="mt-4 leading-relaxed text-deep/70">
+          Eine Auswahl möglicher Inhalte — entdecken Sie mit den Pfeilen
+          Themen, die zu Ihrer Gruppe passen.
+        </p>
+      </div>
+
       <Carousel
         opts={{
           align: "start",
@@ -121,7 +136,7 @@ export function WorkshopGrid() {
         }}
         className="w-full"
       >
-        <CarouselContent className="-ml-4">
+        <CarouselContent className="-ml-4 py-1">
           {workshops.map((w) => (
             <CarouselItem
               key={w.title}
@@ -131,8 +146,10 @@ export function WorkshopGrid() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="-left-2 border-deep/20 bg-card text-deep hover:bg-sand-light hover:text-deep md:-left-4" />
-        <CarouselNext className="-right-2 border-deep/20 bg-card text-deep hover:bg-sand-light hover:text-deep md:-right-4" />
+        <div className="mt-8 flex items-center justify-center gap-4">
+          <CarouselPrevious className={navButtonClass} />
+          <CarouselNext className={navButtonClass} />
+        </div>
       </Carousel>
     </div>
   );

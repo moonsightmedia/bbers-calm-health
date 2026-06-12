@@ -85,10 +85,9 @@ function ImpressumPage() {
 
           <div>
             <h2 className="font-display text-2xl text-deep">Umsatzsteuer</h2>
-            <p className="mt-3 italic text-deep/60">
-              [Bitte ergänzen: USt-IdNr. gemäß § 27 a UStG — oder Hinweis auf
-              Kleinunternehmerregelung / Umsatzsteuerbefreiung für Heilbehandlungen
-              gemäß § 4 Nr. 14 UStG]
+            <p className="mt-3">
+              Umsatzsteuer wird gemäß § 19 UStG nicht ausgewiesen
+              (Kleinunternehmerregelung).
             </p>
           </div>
 
