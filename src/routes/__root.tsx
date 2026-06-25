@@ -63,6 +63,10 @@ export const Route = createRootRoute({
     ],
     scripts: [
       {
+        children:
+          "(function(){var h=location.hostname;if(h==='xn--simone-rothlbbers-e3b.de'||h==='simone-rothlübbers.de'){location.replace('https://www.xn--simone-rothlbbers-e3b.de'+location.pathname+location.search+location.hash);}})();",
+      },
+      {
         type: "application/ld+json",
         children: JSON.stringify(personSchema),
       },

@@ -3,6 +3,18 @@ import { createRouter, useRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
 
 const CHUNK_RELOAD_KEY = "simone-rothluebbers-chunk-reload";
+const CANONICAL_ORIGIN = "https://www.xn--simone-rothlbbers-e3b.de";
+
+function isApexHost(hostname: string) {
+  const host = hostname.toLowerCase();
+  return host === "xn--simone-rothlbbers-e3b.de" || host === "simone-rothlübbers.de";
+}
+
+function redirectToCanonical() {
+  window.location.replace(
+    `${CANONICAL_ORIGIN}${window.location.pathname}${window.location.search}${window.location.hash}`,
+  );
+}
 
 function isChunkLoadError(message: string) {
   return /Failed to fetch dynamically imported module|Loading chunk \d+ failed|Importing a module script failed|error loading dynamically imported module/i.test(
@@ -15,6 +27,11 @@ function DefaultErrorComponent({ error, reset }: { error: Error; reset: () => vo
   const chunkLoadError = isChunkLoadError(error.message);
 
   useEffect(() => {
+    if (isApexHost(window.location.hostname)) {
+      redirectToCanonical();
+      return;
+    }
+
     if (!chunkLoadError || sessionStorage.getItem(CHUNK_RELOAD_KEY)) {
       return;
     }
