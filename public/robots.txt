@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.simone-rothlübbers.de/sitemap.xml
+Sitemap: https://www.xn--simone-rothlbbers-e3b.de/sitemap.xml

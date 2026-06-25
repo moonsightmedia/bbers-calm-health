@@ -1,4 +1,4 @@
-const DEFAULT_SITE_URL = "https://www.simone-rothlübbers.de";
+const DEFAULT_SITE_URL = "https://www.xn--simone-rothlbbers-e3b.de";
 
 export const SITE_URL = (process.env.SITE_URL || DEFAULT_SITE_URL).replace(/\/$/, "");
 

@@ -3,19 +3,13 @@
     {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "simone-rothlübbers.de" }],
-      "destination": "https://www.simone-rothlübbers.de/:path*",
+      "destination": "https://www.xn--simone-rothlbbers-e3b.de/:path*",
       "permanent": true
     },
     {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "xn--simone-rothlbbers-e3b.de" }],
-      "destination": "https://www.simone-rothlübbers.de/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.xn--simone-rothlbbers-e3b.de" }],
-      "destination": "https://www.simone-rothlübbers.de/:path*",
+      "destination": "https://www.xn--simone-rothlbbers-e3b.de/:path*",
       "permanent": true
     }
   ]
