@@ -1,20 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { pageHead } from "@/lib/seo";
 import { PageHeader } from "@/components/site/PageHeader";
 import { AboutSimone } from "@/components/site/AboutSimone";
 import { QuotesBand } from "@/components/site/QuotesBand";
 import { CtaBand } from "@/components/site/CtaBand";
 
 export const Route = createFileRoute("/ueber")({
-  head: () => ({
-    meta: [
-      { title: "Über Simone — Physiotherapeutin in Wuppertal" },
-      { name: "description", content: "Über 30 Jahre Physiotherapie, 15 Jahre Kursleitung, 10 Jahre Gesundheitstage — Simones Vita, Qualifikationen und ganzheitliches Verständnis von Gesundheit." },
-      { property: "og:title", content: "Über Simone Rothlübbers" },
-      { property: "og:description", content: "Physiotherapeutin, Resilienztrainerin, Faszientrainerin und psychologische Beraterin aus Wuppertal." },
-      { property: "og:url", content: "/ueber" },
-    ],
-    links: [{ rel: "canonical", href: "/ueber" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "Über Simone — Physiotherapeutin in Wuppertal",
+      description:
+        "Über 30 Jahre Physiotherapie, 15 Jahre Kursleitung, 10 Jahre Gesundheitstage — Simones Vita, Qualifikationen und ganzheitliches Verständnis von Gesundheit.",
+      path: "/ueber",
+      ogTitle: "Über Simone Rothlübbers",
+      ogDescription:
+        "Physiotherapeutin, Resilienztrainerin, Faszientrainerin und psychologische Beraterin aus Wuppertal.",
+    }),
   component: UeberPage,
 });
 

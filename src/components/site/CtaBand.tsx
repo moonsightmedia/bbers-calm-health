@@ -36,7 +36,7 @@ export function CtaBand({
             oder ruf an — gemeinsam finden wir den passenden nächsten Schritt.
           </p>
 
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4" data-nosnippet>
             <a
               href="mailto:hallo@simone-rothlübbers.de"
               className="group inline-flex items-center gap-3 rounded-full bg-sand px-7 py-4 text-deep transition-all hover:bg-foam hover:shadow-glow"

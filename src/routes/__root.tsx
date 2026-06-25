@@ -1,10 +1,10 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Navigation } from "@/components/site/Navigation";
 import { Footer } from "@/components/site/Footer";
 import { Toaster } from "@/components/ui/sonner";
-import iconDark from "@/assets/icon-dark.png";
-import iconLight from "@/assets/icon-light.png";
-
+import { OG_IMAGE_ALT, OG_IMAGE_URL, personSchema } from "@/lib/seo";
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -37,15 +37,23 @@ export const Route = createRootRoute({
       { name: "author", content: "Simone Rothlübbers" },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Simone Rothlübbers" },
-      { name: "twitter:card", content: "summary" },
+      { property: "og:locale", content: "de_DE" },
+      { property: "og:image", content: OG_IMAGE_URL },
+      { property: "og:image:alt", content: OG_IMAGE_ALT },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: OG_IMAGE_URL },
+      { name: "twitter:image:alt", content: OG_IMAGE_ALT },
+      { name: "theme-color", content: "#1a4a4a" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", type: "image/png", href: iconDark },
-      { rel: "apple-touch-icon", href: iconLight },
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon.png" },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
+      { rel: "manifest", href: "/site.webmanifest" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -56,21 +64,7 @@ export const Route = createRootRoute({
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Person",
-          name: "Simone Rothlübbers",
-          jobTitle: "Physiotherapeutin & Resilienztrainerin",
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "Röttgen 123",
-            postalCode: "42109",
-            addressLocality: "Wuppertal",
-            addressCountry: "DE",
-          },
-          telephone: "+49 176 31345153",
-          email: "hallo@simone-rothlübbers.de",
-        }),
+        children: JSON.stringify(personSchema),
       },
     ],
   }),
@@ -102,6 +96,8 @@ function RootComponent() {
       </main>
       <Footer />
       <Toaster />
+      <Analytics />
+      <SpeedInsights />
     </div>
   );
 }

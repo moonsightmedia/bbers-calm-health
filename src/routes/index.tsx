@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { pageHead, websiteSchema } from "@/lib/seo";
 import { Hero } from "@/components/site/Hero";
 import { Approach } from "@/components/site/Approach";
 import { Offerings } from "@/components/site/Offerings";
@@ -9,16 +10,21 @@ import { CtaBand } from "@/components/site/CtaBand";
 import { SectionTransition } from "@/components/site/SectionTransition";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Bewegung, Resilienz & BGM — Wuppertal" },
-      { name: "description", content: "Ganzheitliche Physiotherapie, Resilienz-Training und BGM aus Wuppertal — für Menschen und Unternehmen, die in Bewegung bleiben wollen." },
-      { property: "og:title", content: "Simone Rothlübbers — Leben im Gleichgewicht" },
-      { property: "og:description", content: "Bewegung, Resilienz und persönliche Begleitung — innen wie außen." },
-      { property: "og:url", content: "/" },
-    ],
-    links: [{ rel: "canonical", href: "/" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "Simone Rothlübbers | Physiotherapie, Resilienz & BGM in Wuppertal",
+      description:
+        "Ganzheitliche Physiotherapie, Resilienz-Training und BGM aus Wuppertal — für Menschen und Unternehmen, die in Bewegung bleiben wollen.",
+      path: "/",
+      ogTitle: "Simone Rothlübbers — Leben im Gleichgewicht",
+      ogDescription: "Bewegung, Resilienz und persönliche Begleitung — innen wie außen.",
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(websiteSchema),
+        },
+      ],
+    }),
   component: Index,
 });
 

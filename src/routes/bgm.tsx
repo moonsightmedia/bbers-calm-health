@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { pageHead } from "@/lib/seo";
 import { motion } from "framer-motion";
 import { ExternalLink, Check, Gift } from "lucide-react";
 import { PageHeader } from "@/components/site/PageHeader";
@@ -6,16 +7,16 @@ import { References } from "@/components/site/References";
 import { CtaBand } from "@/components/site/CtaBand";
 
 export const Route = createFileRoute("/bgm")({
-  head: () => ({
-    meta: [
-      { title: "BGM & Gesundheitstage — Simone Rothlübbers" },
-      { name: "description", content: "BGM-Programme, Workshops und Gesundheitstage nach Leitfaden Prävention (§ 20 SGB V) — für Unternehmen, Kliniken und Einrichtungen." },
-      { property: "og:title", content: "BGM — Simone Rothlübbers" },
-      { property: "og:description", content: "Ganzheitliches Betriebliches Gesundheits­management für Unternehmen und Kliniken." },
-      { property: "og:url", content: "/bgm" },
-    ],
-    links: [{ rel: "canonical", href: "/bgm" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "BGM & Gesundheitstage — Simone Rothlübbers",
+      description:
+        "BGM-Programme, Workshops und Gesundheitstage nach Leitfaden Prävention (§ 20 SGB V) — für Unternehmen, Kliniken und Einrichtungen.",
+      path: "/bgm",
+      ogTitle: "BGM — Simone Rothlübbers",
+      ogDescription:
+        "Ganzheitliches Betriebliches Gesundheitsmanagement für Unternehmen und Kliniken.",
+    }),
   component: BgmPage,
 });
 

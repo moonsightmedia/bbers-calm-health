@@ -1,41 +1,25 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { localBusinessSchema, pageHead } from "@/lib/seo";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { PageHeader } from "@/components/site/PageHeader";
 import { ContactForm } from "@/components/site/ContactForm";
 
 export const Route = createFileRoute("/kontakt")({
-  head: () => ({
-    meta: [
-      { title: "Kontakt — Simone Rothlübbers" },
-      { name: "description", content: "Simone Rothlübbers · Röttgen 123, 42109 Wuppertal · hallo@simone-rothlübbers.de · 0176 31345153" },
-      { property: "og:title", content: "Kontakt — Simone Rothlübbers" },
-      { property: "og:description", content: "Ein erstes Gespräch ist kostenfrei und unverbindlich." },
-      { property: "og:url", content: "/kontakt" },
-    ],
-    links: [{ rel: "canonical", href: "/kontakt" }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          name: "Simone Rothlübbers — Physiotherapie & BGM",
-          image: undefined,
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "Röttgen 123",
-            postalCode: "42109",
-            addressLocality: "Wuppertal",
-            addressCountry: "DE",
-          },
-          telephone: "+49 176 31345153",
-          email: "hallo@simone-rothlübbers.de",
-          areaServed: "Wuppertal",
-        }),
-      },
-    ],
-  }),
+  head: () =>
+    pageHead({
+      title: "Kontakt — Simone Rothlübbers",
+      description:
+        "Simone Rothlübbers · Röttgen 123, 42109 Wuppertal · hallo@simone-rothlübbers.de · 0176 31345153",
+      path: "/kontakt",
+      ogDescription: "Ein erstes Gespräch ist kostenfrei und unverbindlich.",
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(localBusinessSchema),
+        },
+      ],
+    }),
   component: KontaktPage,
 });
 

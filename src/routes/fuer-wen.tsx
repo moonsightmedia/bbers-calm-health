@@ -1,20 +1,20 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { pageHead } from "@/lib/seo";
 import { PageHeader } from "@/components/site/PageHeader";
 import { ForWhom } from "@/components/site/ForWhom";
 import { CtaBand } from "@/components/site/CtaBand";
 import { SectionTransition } from "@/components/site/SectionTransition";
 
 export const Route = createFileRoute("/fuer-wen")({
-  head: () => ({
-    meta: [
-      { title: "Für wen — Simone Rothlübbers" },
-      { name: "description", content: "Für Einzelpersonen, Unternehmen, Frauen in den Wechseljahren und Kinder im Vorschul- und Grundschulalter — vier Zielgruppen, ein ganzheitlicher Ansatz." },
-      { property: "og:title", content: "Für wen — Simone Rothlübbers" },
-      { property: "og:description", content: "Angebote für Einzelpersonen, Unternehmen, Frauen in den Wechseljahren und Kinder." },
-      { property: "og:url", content: "/fuer-wen" },
-    ],
-    links: [{ rel: "canonical", href: "/fuer-wen" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "Für wen — Simone Rothlübbers",
+      description:
+        "Für Einzelpersonen, Unternehmen, Frauen in den Wechseljahren und Kinder im Vorschul- und Grundschulalter — vier Zielgruppen, ein ganzheitlicher Ansatz.",
+      path: "/fuer-wen",
+      ogDescription:
+        "Angebote für Einzelpersonen, Unternehmen, Frauen in den Wechseljahren und Kinder.",
+    }),
   component: FuerWenPage,
 });
 

@@ -1,19 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { pageHead } from "@/lib/seo";
 import { PageHeader } from "@/components/site/PageHeader";
 import { Offerings } from "@/components/site/Offerings";
 import { CtaBand } from "@/components/site/CtaBand";
 
 export const Route = createFileRoute("/angebote")({
-  head: () => ({
-    meta: [
-      { title: "Angebote — Simone Rothlübbers" },
-      { name: "description", content: "Einzeltherapie, Workshops, Betriebliches Gesundheits­management und Brain-Move für Kinder — vier Bereiche, ein ganzheitlicher Ansatz." },
-      { property: "og:title", content: "Angebote — Simone Rothlübbers" },
-      { property: "og:description", content: "Physiotherapie, Workshops, BGM und Brain-Move für Kinder." },
-      { property: "og:url", content: "/angebote" },
-    ],
-    links: [{ rel: "canonical", href: "/angebote" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "Angebote — Simone Rothlübbers",
+      description:
+        "Einzeltherapie, Workshops, Betriebliches Gesundheitsmanagement und Brain-Move für Kinder — vier Bereiche, ein ganzheitlicher Ansatz.",
+      path: "/angebote",
+      ogDescription: "Physiotherapie, Workshops, BGM und Brain-Move für Kinder.",
+    }),
   component: AngebotePage,
 });
 

@@ -1,14 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { pageHead } from "@/lib/seo";
 import { PageHeader } from "@/components/site/PageHeader";
 
 export const Route = createFileRoute("/impressum")({
-  head: () => ({
-    meta: [
-      { title: "Impressum — Simone Rothlübbers" },
-      { name: "description", content: "Anbieterkennzeichnung gemäß § 5 DDG." },
-      { name: "robots", content: "noindex" },
-    ],
-  }),
+  head: () =>
+    pageHead({
+      title: "Impressum — Simone Rothlübbers",
+      description: "Anbieterkennzeichnung gemäß § 5 DDG.",
+      path: "/impressum",
+      robots: "noindex, follow",
+    }),
   component: ImpressumPage,
 });
 

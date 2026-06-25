@@ -1,20 +1,20 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { pageHead } from "@/lib/seo";
 import { PageHeader } from "@/components/site/PageHeader";
 import { FaszienCourse } from "@/components/site/FaszienCourse";
 import { WorkshopGrid } from "@/components/site/WorkshopGrid";
 import { CtaBand } from "@/components/site/CtaBand";
 
 export const Route = createFileRoute("/workshops")({
-  head: () => ({
-    meta: [
-      { title: "Workshops & Kurse — Simone Rothlübbers" },
-      { name: "description", content: "Workshops zu Rücken, Faszien, Schulter, Koordination, Krafttraining, Wechseljahren und Brain-Move für Kinder — als Einzeltermin oder fortlaufende Reihe." },
-      { property: "og:title", content: "Workshops & Kurse — Simone Rothlübbers" },
-      { property: "og:description", content: "Vielfältige Workshops zu Bewegung, Resilienz und Gesundheit — plus wöchentlicher Faszien-Kurs montags in Barmen." },
-      { property: "og:url", content: "/workshops" },
-    ],
-    links: [{ rel: "canonical", href: "/workshops" }],
-  }),
+  head: () =>
+    pageHead({
+      title: "Workshops & Kurse — Simone Rothlübbers",
+      description:
+        "Workshops zu Rücken, Faszien, Schulter, Koordination, Krafttraining, Wechseljahren und Brain-Move für Kinder — als Einzeltermin oder fortlaufende Reihe.",
+      path: "/workshops",
+      ogDescription:
+        "Vielfältige Workshops zu Bewegung, Resilienz und Gesundheit — plus wöchentlicher Faszien-Kurs montags in Barmen.",
+    }),
   component: WorkshopsPage,
 });
 

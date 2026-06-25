@@ -1,18 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { pageHead } from "@/lib/seo";
 import { PageHeader } from "@/components/site/PageHeader";
 
 export const Route = createFileRoute("/datenschutz")({
-  head: () => ({
-    meta: [
-      { title: "Datenschutzerklärung — Simone Rothlübbers" },
-      {
-        name: "description",
-        content:
-          "Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO.",
-      },
-      { name: "robots", content: "noindex" },
-    ],
-  }),
+  head: () =>
+    pageHead({
+      title: "Datenschutzerklärung — Simone Rothlübbers",
+      description: "Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO.",
+      path: "/datenschutz",
+      robots: "noindex, follow",
+    }),
   component: DatenschutzPage,
 });
 
@@ -101,16 +98,39 @@ function DatenschutzPage() {
           </div>
 
           <div>
-            <h2 className="font-display text-2xl text-deep">7. Cookies</h2>
+            <h2 className="font-display text-2xl text-deep">7. Webanalyse & Performance</h2>
             <p className="mt-3">
-              Diese Website setzt ausschließlich technisch notwendige Cookies, soweit
-              dies für den Betrieb erforderlich ist. Tracking- oder Analyse-Cookies
-              werden nicht eingesetzt.
+              Wir nutzen Vercel Web Analytics und Vercel Speed Insights (Vercel Inc.,
+              440 N Barranca Ave #4133, Covina, CA 91723, USA), um die Nutzung dieser
+              Website in aggregierter Form auszuwerten und die Ladegeschwindigkeit zu
+              verbessern. Dabei werden keine personenbezogenen Profile erstellt; Vercel
+              Analytics arbeitet ohne Tracking-Cookies. Es können jedoch technische
+              Zugriffsdaten (z. B. gekürzte IP-Adresse, aufgerufene Seite, Gerätetyp)
+              verarbeitet werden. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO
+              (berechtigtes Interesse an einem stabilen und nutzerfreundlichen Webauftritt).
+              Weitere Informationen:{" "}
+              <a
+                href="https://vercel.com/legal/privacy-policy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-tide"
+              >
+                vercel.com/legal/privacy-policy
+              </a>.
             </p>
           </div>
 
           <div>
-            <h2 className="font-display text-2xl text-deep">8. Ihre Rechte</h2>
+            <h2 className="font-display text-2xl text-deep">8. Cookies</h2>
+            <p className="mt-3">
+              Diese Website setzt keine Marketing- oder Profiling-Cookies ein. Soweit
+              technisch notwendige Cookies für den Betrieb erforderlich sind, werden
+              diese ausschließlich zu diesem Zweck verwendet.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="font-display text-2xl text-deep">9. Ihre Rechte</h2>
             <p className="mt-3">
               Sie haben jederzeit das Recht auf Auskunft (Art. 15), Berichtigung
               (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18),
@@ -125,7 +145,7 @@ function DatenschutzPage() {
           </div>
 
           <div>
-            <h2 className="font-display text-2xl text-deep">9. Datensicherheit</h2>
+            <h2 className="font-display text-2xl text-deep">10. Datensicherheit</h2>
             <p className="mt-3">
               Die Übertragung dieser Website erfolgt verschlüsselt per HTTPS. Wir
               treffen angemessene technische und organisatorische Maßnahmen, um Ihre

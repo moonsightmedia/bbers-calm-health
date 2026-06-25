@@ -1,0 +1,10 @@
+{
+  "name": "Simone Rothlübbers",
+  "short_name": "Simone Rothlübbers",
+  "icons": [
+    { "src": "/favicon.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ],
+  "theme_color": "#1a4a4a",
+  "background_color": "#f2f6f5"
+}

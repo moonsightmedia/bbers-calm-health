@@ -37,7 +37,7 @@ export function Footer() {
           </p>
         </div>
 
-        <div>
+        <div data-nosnippet>
           <h4 className="font-display text-foam">Navigation</h4>
           <ul className="mt-5 space-y-3 text-sm">
             {navLinks.map((l) => (
@@ -50,7 +50,7 @@ export function Footer() {
           </ul>
         </div>
 
-        <div>
+        <div data-nosnippet>
           <h4 className="font-display text-foam">Kontakt</h4>
           <ul className="mt-5 space-y-3 text-sm">
             <li className="flex items-start gap-2">
@@ -78,7 +78,7 @@ export function Footer() {
         </div>
       </motion.div>
 
-      <div className="border-t border-foam/10">
+      <div className="border-t border-foam/10" data-nosnippet>
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-6 py-6 text-xs text-foam/55 md:flex-row md:px-10">
           <span>© {new Date().getFullYear()} Simone Rothlübbers. Alle Rechte vorbehalten.</span>
           <span>
