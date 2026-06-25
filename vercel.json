@@ -11,6 +11,12 @@
       "has": [{ "type": "host", "value": "xn--simone-rothlbbers-e3b.de" }],
       "destination": "https://www.simone-rothlübbers.de/:path*",
       "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.xn--simone-rothlbbers-e3b.de" }],
+      "destination": "https://www.simone-rothlübbers.de/:path*",
+      "permanent": true
     }
   ]
 }

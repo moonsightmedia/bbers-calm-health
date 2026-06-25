@@ -1,20 +1,40 @@
+import { useEffect } from "react";
 import { createRouter, useRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
 
+const CHUNK_RELOAD_KEY = "simone-rothluebbers-chunk-reload";
+
+function isChunkLoadError(message: string) {
+  return /Failed to fetch dynamically imported module|Loading chunk \d+ failed|Importing a module script failed|error loading dynamically imported module/i.test(
+    message,
+  );
+}
+
 function DefaultErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   const router = useRouter();
+  const chunkLoadError = isChunkLoadError(error.message);
+
+  useEffect(() => {
+    if (!chunkLoadError || sessionStorage.getItem(CHUNK_RELOAD_KEY)) {
+      return;
+    }
+
+    sessionStorage.setItem(CHUNK_RELOAD_KEY, "1");
+    window.location.reload();
+  }, [chunkLoadError]);
 
   return (
-    <div className="flex min-h-dvh items-center justify-center bg-background px-4">
+    <div className="flex min-h-[60vh] items-center justify-center bg-foam px-4 py-20">
       <div className="max-w-md text-center">
-        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-destructive/10">
+        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-deep/10">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-8 w-8 text-destructive"
+            className="h-8 w-8 text-deep"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
             strokeWidth={2}
+            aria-hidden
           >
             <path
               strokeLinecap="round"
@@ -23,32 +43,40 @@ function DefaultErrorComponent({ error, reset }: { error: Error; reset: () => vo
             />
           </svg>
         </div>
-        <h1 className="text-2xl font-bold tracking-tight text-foreground">Something went wrong</h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          An unexpected error occurred. Please try again.
+        <h1 className="font-display text-2xl text-deep">
+          {chunkLoadError ? "Seite wird aktualisiert …" : "Etwas ist schiefgelaufen"}
+        </h1>
+        <p className="mt-2 text-sm text-deep/70">
+          {chunkLoadError
+            ? "Nach dem letzten Update wird die Seite neu geladen."
+            : "Ein unerwarteter Fehler ist aufgetreten. Bitte versuche es erneut."}
         </p>
         {import.meta.env.DEV && error.message && (
-          <pre className="mt-4 max-h-40 overflow-auto rounded-md bg-muted p-3 text-left font-mono text-xs text-destructive">
+          <pre className="mt-4 max-h-40 overflow-auto rounded-md bg-deep/5 p-3 text-left font-mono text-xs text-deep">
             {error.message}
           </pre>
         )}
-        <div className="mt-6 flex items-center justify-center gap-3">
-          <button
-            onClick={() => {
-              router.invalidate();
-              reset();
-            }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Try again
-          </button>
-          <a
-            href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
-          >
-            Go home
-          </a>
-        </div>
+        {!chunkLoadError && (
+          <div className="mt-6 flex items-center justify-center gap-3">
+            <button
+              type="button"
+              onClick={() => {
+                sessionStorage.removeItem(CHUNK_RELOAD_KEY);
+                router.invalidate();
+                reset();
+              }}
+              className="inline-flex items-center justify-center rounded-full bg-deep px-5 py-2.5 text-sm text-foam transition-colors hover:bg-tide"
+            >
+              Erneut versuchen
+            </button>
+            <a
+              href="/"
+              className="inline-flex items-center justify-center rounded-full border border-deep/20 px-5 py-2.5 text-sm text-deep transition-colors hover:bg-deep/5"
+            >
+              Zur Startseite
+            </a>
+          </div>
+        )}
       </div>
     </div>
   );

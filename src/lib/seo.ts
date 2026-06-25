@@ -1,6 +1,6 @@
 const DEFAULT_SITE_URL = "https://www.simone-rothlübbers.de";
 
-export const SITE_URL = (process.env.SITE_URL ?? DEFAULT_SITE_URL).replace(/\/$/, "");
+export const SITE_URL = (process.env.SITE_URL || DEFAULT_SITE_URL).replace(/\/$/, "");
 
 export const OG_IMAGE_PATH = "/og.jpg";
 export const OG_IMAGE_URL = `${SITE_URL}${OG_IMAGE_PATH}`;
