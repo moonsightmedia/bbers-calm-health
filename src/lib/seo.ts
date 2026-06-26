@@ -71,7 +71,7 @@ export const websiteSchema = {
     name: "Simone Rothlübbers",
     logo: {
       "@type": "ImageObject",
-      url: absoluteUrl("/favicon.png"),
+      url: absoluteUrl("/favicon-192.png"),
     },
   },
 };
