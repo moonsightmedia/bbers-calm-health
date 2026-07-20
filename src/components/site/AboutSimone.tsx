@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import portrait from "@/assets/simone-portrait.jpg";
+import portrait from "@/assets/about-portrait.jpg";
 
 const stats = [
   { value: "30+", label: "Jahre Physiotherapie" },
@@ -57,7 +57,7 @@ export function AboutSimone({ teaser = false }: Props) {
             >
               <img
                 src={portrait}
-                alt="Portrait von Simone Rothlübbers im Therapieraum"
+                alt="Porträt von Simone Rothlübbers"
                 width={1024}
                 height={1024}
                 loading="lazy"

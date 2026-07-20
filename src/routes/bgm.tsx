@@ -5,6 +5,7 @@ import { ExternalLink, Check, Gift } from "lucide-react";
 import { PageHeader } from "@/components/site/PageHeader";
 import { References } from "@/components/site/References";
 import { CtaBand } from "@/components/site/CtaBand";
+import resilience from "@/assets/resilience-meditate.jpg";
 
 export const Route = createFileRoute("/bgm")({
   head: () =>
@@ -82,6 +83,15 @@ function BgmPage() {
               transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
               className="space-y-6 lg:col-span-5"
             >
+              <div className="overflow-hidden rounded-[28px]">
+                <img
+                  src={resilience}
+                  alt="Achtsamkeit und Resilienz im Freien"
+                  className="aspect-[4/5] w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+
               <References />
 
               <div className="rounded-[28px] border border-deep/10 bg-card p-8">

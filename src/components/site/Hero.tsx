@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Play, Quote } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import portrait from "@/assets/simone-portrait.jpg";
+import portrait from "@/assets/hero-portrait.jpg";
 
 export function Hero() {
   return (
@@ -118,7 +118,7 @@ export function Hero() {
                 alt="Porträt von Simone Rothlübbers"
                 width={1024}
                 height={1280}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover object-[center_20%]"
               />
             </div>
 
